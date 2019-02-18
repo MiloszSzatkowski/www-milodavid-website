@@ -3,9 +3,76 @@ input, textarea {
   background-color: #1e1e1e;
   border: 2px solid #f0f0f0;
 }
-.main-navigation-element {
-  padding: 3em;
-  font-size: 1.2em;
+b, strong {
+  font-weight: 900;
+}
+.mob_menu {
+  z-index: 102;
+  position: fixed;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.mob_menu::-webkit-scrollbar {
+  display: none;
+}
+@keyframes scrolling {
+  from {
+    left: -50%;
+    opacity: 0;
+  }
+  to {
+    left: 0%;
+    opacity: 1;
+  }
+}
+.mob_menu {
+  background-color: #1e1e1e;
+  display: inline-block !important;
+  z-index: 101;
+  padding: 0.5em;
+}
+.mob_menu div {
+  display: inline-block !important;
+}
+.mob_menu .logo {
+  margin-right: 1em;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1em;
+  font-weight: 900;
+  transform: translateY(20%);
+}
+.mob_menu ul :last-child {
+  border-right: none;
+}
+.mob_menu li {
+  position: relative;
+  animation-name: scrolling;
+  animation-duration: 1s;
+  display: inline-block !important;
+  border-right: 2px solid grey;
+  padding-right: 3px;
+}
+.mob_menu li p {
+  display: inline-block !important;
+}
+.mob_menu li :hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.mob_menu li a {
+  font-size: 1.3em;
+  border: none;
+}
+.mob_menu li a:hover {
+  font-size: 1.3em;
+  border: none;
+}
+.max-width {
+  max-width: 900px;
+}
+.cont-padding {
+  padding: 5vw;
 }
 u {
   text-decoration-color: grey;
@@ -68,44 +135,57 @@ hr {
   border: 0;
   padding: 2px;
   margin: 0;
-  height: 0.5em;
+  height: 0.2em;
   width: 15em;
   background-image: linear-gradient(to right, grey, rgba(0, 0, 0, 0));
   margin-bottom: 2em;
 }
 p {
   max-width: 800px;
-  font-size: 20px;
+  font-size: 21px;
+  line-height: 27px;
 }
-h1, h2, h3, h4, h5, h6 {
-  padding: 0;
-  margin: 0;
+html {
+  line-height: 27px;
+  font-size: 21px;
+  line-height: auto;
 }
-h1 {
-  font-size: 3vw;
+html h1 a, html h2 a, html h3 a, html h4 a, html h5 a, html h6 a {
+  font-weight: 500;
 }
-h2 {
-  font-size: 2.5vw;
+html h1 {
+  font-size: 27px;
+  line-height: 35px;
+}
+html h2 {
+  font-size: 26px;
+  line-height: 30px;
   font-weight: 900;
 }
-h3 {
-  font-size: 2vw;
+html h3 {
+  font-size: 25px;
+  line-height: 28px;
 }
-h4 {
-  font-size: 1.2vw;
+html h4 {
+  font-size: 24px;
+}
+html h5 {
+  font-size: 23px;
+}
+html h6 {
+  font-size: 22px;
 }
 blockquote {
+  font-size: 22px;
   padding: 1em;
   max-width: 800px;
   margin-bottom: 2em;
-  font-size: 1.5em;
   font-style: italic;
   background-color: rgba(50, 50, 50, 1);
 }
-blockquote p {
+blockquote strong {
   font-style: normal;
-  padding-top: 1em;
-  position: relative;
+  line-height: 2em;
   color: grey;
 }
 .no-pad-left-right {
@@ -141,18 +221,6 @@ div {
 .center-x {
   width: 100%;
   text-align: center;
-}
-.back-colored-art {
-  background: linear-gradient(0deg, rgba(50, 50, 50, 0.7), rgba(50, 50, 50, 0.7)), url('/images/panel-art.jpg') repeat local center;
-  transition: all 0.3s;
-}
-.back-colored-design {
-  background: linear-gradient(0deg, rgba(50, 50, 50, 0.7), rgba(50, 50, 50, 0.7)), url('/images/panel-design.jpg') repeat local center;
-  transition: all 0.3s;
-}
-.back-colored-programm {
-  background: linear-gradient(0deg, rgba(50, 50, 50, 0.7), rgba(50, 50, 50, 0.7)), url('/images/panel-programming.jpg') repeat local center;
-  transition: all 0.3s;
 }
 .container-fluid {
   padding: 0 !important;

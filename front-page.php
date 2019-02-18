@@ -1,110 +1,114 @@
 <?php get_header(); ?>
 
-<div class="container-fluid">
-  <div class="" style="display:flex; justify-content:space-between">
-    <div class="" style="display:flex;">
-      <img src='images/portrait-library.jpg' style="height:10em;">
-      <div class="" style="padding: 1em;">
-        <p style="font-size:3em;font-weight:900; ">MILO DAVID  <p> <p> I turn ideas into finished products. </p>
+
+
+<div class="container-fluid main-background background_color" style="margin-top:5em;">
+
+  <div class="row">
+
+    <div class="col-md-12 row back-colored" style="display:flex;">
+
+      <div class=" col-md-12 no-pad-left-right" style="padding-right:0!important;">
+        <img class="img-responsive d-block d-md-none"
+        src="<?=get_option('mb_banner_photo')?>" alt="" style="
+        padding-right:0; margin: 0;
+         padding: 0; width:100%;">
       </div>
-    </div>
-      <div class="" style="width:50%;display:flex; justify-content:flex-end;">
-        <div class="main-navigation-element">          <p> art. </p>        </div>
-        <div class="main-navigation-element">          <p> design. </p>        </div>
-        <div class="main-navigation-element">          <p> programming. </p>        </div>
-        <div class="main-navigation-element">          <p> about. </p>        </div>
-        <div class="main-navigation-element">          <p> contact. </p>        </div>
+
+      <div class="col-md-3 d-none d-md-block" style="height:100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image:url(<?=get_option('banner_photo')?>)">
       </div>
-  </div>
 
-</div>
-
-<div class="container-fluid main-background background_color">
-  <div class="">
-    <div class="full-device-height-width">
-
-      <!-- ************************* intro -->
-      <!-- ************************* intro -->
-      <!-- ************************* intro -->
-
-        <div class="" style="width:100%; display:flex;padding:0 10vw 0 10vw;">
-          <div class="padding_large"  style="padding-bottom:0; max-width: 1200px;">
-            <div class="" style="">
-              <div class="padding_small" style="display:flex; justify-content: flex-start;">
-                  <div class="" style="padding-left: 1em;">
-                    <div class="" style="font-size:1.8em; line-height:1.8em;">
-                      <?php get_option('introduction') ?>
-                    </div>
-                  </div>
-                  <div class="scroll_down padding_small" data-scroll="#" style="margin-left:5vw;">
-                    <img src="/images/arrow_down_png.png" style="width:2em;auto;" alt="">
-                  </div>
+      <div class="col-lg-5 col-md-9"  style="padding-bottom:0; max-width: 1200px;">
+        <div class="" style="">
+          <div class="padding_small" style="display:flex; justify-content: flex-start;">
+            <div class="" style="padding-left: 1em;">
+              <div class="" style="font-size:1.8em; line-height:1.8em;">
+                <?=get_option('introduction')?>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-      <!-- elaboration   ******************* -->
-      <!-- elaboration   ******************* -->
-      <!-- elaboration   ******************* -->
+      <div class="col-md-4 padding_small d-none d-lg-block" style="line-height: 3em; color:grey;">
+        <?=get_option('my_offer')?>
+      </div>
 
-        <div class="" style="width: 100%; margin: 0 auto; padding:5vw 10vw 0 10vw;">
-          <div class="padding_large">
+    </div>
 
-            <div class="   no-pad-left-right margin-bottom" style="">
+    <div class="col-lg-8 row cont-padding">
+
+      <?php $box_color = 'rgba(50,50,50,0.7)' ?>
+
+      <style media="screen">
+
+      .back-colored{background: linear-gradient(0deg, rgba(50,50,50,0.9), rgba(50,50,50,0.95)  ),
+      url('http://milodavid.local/wp-content/uploads/2019/02/Geo-Marquetry-9.jpg') repeat local center ;  }
+
+      .back-colored-art{
+      background: linear-gradient(0deg, <?=$box_color?> , <?=$box_color?>  ),
+      url('http://milodavid.local/wp-content/uploads/2019/02/panel-art.jpg') repeat local center ;   }
+
+      .back-colored-design{
+      background: linear-gradient(0deg, <?=$box_color?>  , <?=$box_color?>  ),
+      url('http://milodavid.local/wp-content/uploads/2019/02/panel-design.jpg') repeat local center;    }
+
+      .back-colored-programm{
+      background: linear-gradient(0deg, <?=$box_color?> , <?=$box_color?>  ),
+      url('http://milodavid.local/wp-content/uploads/2019/02/panel-programming.jpg') repeat local center;   }
+
+      </style>
+
+        <div class="" style="width: 100%; margin: 0 auto;">
+          <div class="padding_small">
+
+            <div class="   no-pad-left-right margin-bottom " style="">
               <div class="back-colored-design padding_large" style="">
                 <h2 class=" text_2nd_color">
                   DESIGN
                 </h2>
               </div>
               <div class="padding_large">
-                <h3>
-                  BRAND IDENTITY
-                </h3>
-                <hr>
-                <blockquote >
-                  A brand is the set of expectations, memories, stories and relationships that,
-                  taken together, account for a consumer's decision to choose one product or service over another.
-                  <p>Seth Godin</p>
-                </blockquote>
-                <p>
-                  Some of these items are the name, logo, tone, tagline, typeface, and shape that create an appeal.
-                  Brand Identity is the message the consumer receives from the product, person, or thing.
-                  The brand identity will connect product recognition.
-                  Setting guidelines and consistency.
-                  Consistency in identity projects the corporate culture that surrounds the product.
-                </p>
-                <p>These are some of the questions we will be discussing. </p>
+                <?=get_option('des_intro')?>
               </div>
             </div>
 
-            <div class="  no-pad-left-right margin-bottom" style="">
-              <div class="back-colored-programm padding_large" style="">
-                <h2 class=" text_2nd_color">
-                  PROGRAMMING
-                </h2>
+              <div class="   no-pad-left-right margin-bottom " style="">
+                <div class="back-colored-design padding_large" style="">
+                  <h2 class=" text_2nd_color">
+                    PROGRAMMING
+                  </h2>
+                </div>
+                <div class="padding_large">
+                  <?=get_option('prog_intro')?>
+                </div>
               </div>
-            </div>
 
-          <div class="no-pad-left-right margin-bottom" style="">
-            <div class=" back-colored-art padding_large" style="">
-              <h2 class=" text_2nd_color">
-                ART
-              </h2>
-            </div>
-          </div>
+              <div class="   no-pad-left-right margin-bottom " style="">
+                <div class="back-colored-art padding_large" style="">
+                  <h2 class=" text_2nd_color">
+                    ART
+                  </h2>
+                </div>
+                <div class="padding_large">
+                  <?=get_option('art_intro')?>
+                </div>
+              </div>
 
           </div>
         </div>
 
       </div>
 
+      <div class="col-md-4" >
+      </div>
+
     </div>
-  </div>
 </div>
-
-
-<script type="text/javascript" src="js/components.js"></script>
 
 </body>
 

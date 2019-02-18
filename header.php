@@ -7,9 +7,6 @@
 <!-- view on your local php server | php -S locahost:1234 -->
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<link rel="stylesheet" href="./reset_css/reset.css">
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/aos.css">
 
 <!-- scripts -->
 <!-- jquery -->
@@ -21,9 +18,34 @@
 <script type="text/javascript" src="./js/aos.js"></script>
 <script>    AOS.init();  </script>
 
-<body>
-
 <?php wp_head(); ?>
 </head>
+<body>
 
-<body >
+<style media="screen">
+  html{margin-top:0 !important;}
+</style>
+
+<header>
+
+<nav>
+
+    <div id="" class=" " style="width:100%;">
+      <div id="mob_nav" class="mob_menu d-block d-sm-none  " style="">
+        <div class="">
+          <ul>
+                <p class="logo" style="">MILO </br> DAVID  </p>
+          </ul>
+        </div>
+        <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+      </div>
+    </div>
+
+<script type="text/javascript" src="https://unpkg.com/simplebar@latest/dist/simplebar.js"> </script>
+<script type="text/javascript">
+  new SimpleBar(document.getElementById('mob_nav'), { autoHide: false })
+</script>
+
+</nav>
+
+</header>
