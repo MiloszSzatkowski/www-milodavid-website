@@ -15,13 +15,11 @@ integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO
 
 <!-- scripts -->
 <!-- jquery -->
-<script
+<!-- <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script> -->
 <!-- animation on entry -->
-<script type="text/javascript" src="./js/aos.js"></script>
-<script>    AOS.init();  </script>
 
 <?php wp_head(); ?>
 </head>
@@ -60,11 +58,6 @@ integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO
       <p>  <?= get_option('mytel')?> </p>
       <p><a href="mailto:design@milodavid.com">design@milodavid.com</a> </p>
      </div>
-
-<script type="text/javascript" src="https://unpkg.com/simplebar@latest/dist/simplebar.js"> </script>
-<script type="text/javascript">
-  new SimpleBar(document.getElementById('mob_nav'), { autoHide: false })
-</script>
 
 </nav>
 

@@ -2,24 +2,33 @@
 
 define('WP_SCSS_ALWAYS_RECOMPILE', true);
 
-load_theme_textdomain( 'blankslate', get_template_directory() . '/languages' );
+$dir_uri = '/wp-content/themes/minimalistic-black-theme/';
+
 add_theme_support( 'title-tag' );
 add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
 
 function theme_styles_and_scripts (){
-wp_enqueue_style( 'boostrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' );
-wp_enqueue_style( 'reset', get_template_directory_uri() . '/reset_css/reset.css' ,  array(), '', 'all'  );
-wp_enqueue_style( 'simplebar_css', "https://unpkg.com/simplebar@latest/dist/simplebar.css" ,  array(), '', 'all'  );
 
-wp_enqueue_script( 'component_js', get_template_directory_uri() . '/js/component.js' ,  array(), '', 'all' );
+wp_deregister_script('jquery');
+wp_register_script('jquery', "https://code.jquery.com/jquery-3.3.1.min.js", false, null);
+wp_enqueue_script('jquery');
+
+// wp_enqueue_script( 'jq_mob_js', 'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js',  array(), '', 'all' );
+// wp_enqueue_style( 'jq_mob_css', 'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css',  array(), '', 'all' );
+
+wp_enqueue_style( 'boostrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' );
+wp_enqueue_style( 'reset',  get_template_directory_uri()  . '/reset_css/reset.css' ,  array(), '', 'all'  );
+
+wp_enqueue_style( 'simplebar_css', "https://unpkg.com/simplebar@latest/dist/simplebar.css" ,  array(), '', 'all'  );
+wp_enqueue_script( 'simplebar_js', "https://unpkg.com/simplebar@latest/dist/simplebar.js" ,  array(), '', 'all'  );
+
+wp_enqueue_script( 'component_js', get_template_directory_uri() . '/js/components.js' ,  array(), '', 'all' );
 wp_enqueue_script( 'aos', get_template_directory_uri() . '/js/aos.js' ,  array(), '', 'all' );
 wp_register_script( 'bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js' ,  array(), '', 'all' );
 wp_enqueue_script('bootstrap_js');
-wp_enqueue_script( 'simplebar_js', "https://unpkg.com/simplebar@latest/dist/simplebar.js" ,  array(), '', 'all' );
 
 }
-
 add_action( 'wp_enqueue_scripts', 'theme_styles_and_scripts' );
 
 // POST TYPES

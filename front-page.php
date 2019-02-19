@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-
-
 <div class="container-fluid main-background " style="margin-top:4.5em;">
 
   <div class="row ">
@@ -57,9 +55,8 @@
     }
       .back-colored-art h2{font-size: 2em;}
 
-
       .back-colored-design{
-      background: linear-gradient(90deg, <?=$box_color?>  , rgba(0,0,0,0.95), rgba(0,0,0,0.95), <?=$box_color?>  ),
+      background: linear-gradient(90deg, <?=$box_color?>  , rgba(0,0,0,0.85), rgba(0,0,0,0.85), <?=$box_color?>  ),
       url('http://milodavid.local/wp-content/uploads/2019/02/panel-design.jpg') repeat local center;
       background-size: cover;
       text-align: center;
@@ -74,28 +71,54 @@
      }
       .back-colored-programm h2{font-size: 2em;}
 
-
-
       </style>
 
         <div class="background_color box-shadow bor-rad" style="width: 100%; margin: 0 auto;">
           <div class="padding_small ">
 
             <div class="   no-pad-left-right margin-bottom " style="">
-              <div class="back-colored-design padding_large" style="">
-                <h2 class=" text_2nd_color">
-                  DESIGN
-                </h2>
-              </div>
-
               <div class="">
                 <div class="">
 
+                  <div class="row padding_small">
+
+                    <div class="col-lg-4 back-colored-design padding_medium"
+                    style="min-height:100%;display:flex;justify-content: center; flex-direction: column;">
+                      <h2 class=" text_2nd_color" style="">
+                        DESIGN
+                      </h2>
+                    </div>
+
+                    <div class="col-lg-8 " >
+                      <h2 class=" d-none d-lg-block" style="text-align:center;">
+                        MY PROJECTS
+                      </h2>
+                      <h2 class=" d-block d-lg-none" style="text-align:left; padding-top:1em;">
+                        MY PROJECTS
+                      </h2>
+                      <hr>
+                      <div class="row " style="margin-top:-2em; padding-left:1em; padding-right:1em;">
+
+                        <div class="col-md-12 mar-bottom padding_small"
+                        style="background-image:url(https://picsum.photos/200)">
+                          <a href="#" class="" style="background-color:rgba(0,0,0,0.7)"> Cristalstone adasda asdasd</a>
+                        </div>
+
+                        <div class="col-md-12 mar-bottom padding_small"
+                        style="background-image:url(https://picsum.photos/200)">
+                          <a href="#" class="" style="background-color:rgba(0,0,0,0.7)"> Cristalstone adasda asdasd</a>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
                   <div class="">
                     <div class="background_color_2 bor-rad" style="margin-top:1em;">
-                      <h2 class="padding_small" style="text-align:center;">
+                      <h3 class="padding_small" style="text-align:center;">
                         CRISTALSTONE
-                      </h2>
+                      </h3>
                       <div class="row">
                         <div class="col-md-12" style="">
                           <div class="background_light padding_large" style="min-height:100%;">
@@ -129,16 +152,16 @@
 
 <style media="screen">
   .gallery_img{
-    height:80vh;
+    height:75vh;
     background-position: center center;
     background-repeat: no-repeat;
   }
 </style>
 
-<section id="Galeria_nr_0" class="row" style="display:flex">
+<section id="Galeria_nr_0" class="row galleries" style="display:flex">
 <section class="col-md-12">
     <div class="bd-example galeria_duza_kontener">
-      <div id="nawigacja_karuzeli_galerii_duzej_0" class="carousel slide" data-ride="carousel" data-interval="3000">
+      <div id="nawigacja_karuzeli_galerii_duzej_0" class="carousel slide" data-ride="carousel" data-interval="5000">
 
         <ol class="carousel-indicators">
 
