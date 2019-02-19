@@ -1,6 +1,11 @@
 <footer>FOOTER</footer>
 </body>
+
+ <?php wp_footer(); ?>
+
 </html>
+
+
 
 <script type="text/javascript">
 (function($){

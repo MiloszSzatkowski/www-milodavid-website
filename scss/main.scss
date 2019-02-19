@@ -1,13 +1,14 @@
 $yellow : rgba(255, 235, 0,1);
 $magenta : rgba(245, 55, 140,1);
 $blue : rgba(25, 155, 235,1);
-$background_color : rgb(30,30,30);
-$background_color_2 : rgb(230,230,230);
+$background_color : rgb(40,40,40);
+$background_color_2 : rgb(30,30,30);
 $text_color : rgb(240,240,240);
 $text_2nd_color : rgb(240,240,240);
 $text_3nd_color : rgb(30,30,30);
 $box_color : rgba(50,50,50,0.7);
 $box_color_light : rgba(50,50,50,1);
+$box_color_darker : rgba(45,45,45,1);
 $box_color_full : rgba(60,15,23,1);
 $almost_black : rgba(0,0,0,0.5);
 $hover_b : rgba(0,0,0, 0.5);
@@ -15,11 +16,20 @@ $transparent_white : rgba(255,255,255,0.5)  ;
 $grey : grey;
 $anchor_col :  #204f77 ;
 $font :  Montserrat, sans-serif;
+$blue_accent : #6aceff;
+
+.box-shadow{
+  box-shadow: 0px 0px 10px 5px $almost_black;
+}
+
+.bor-rad{
+  border-radius: 20px;
+}
 
 input,textarea{width: 100%;
 background-color:  $background_color;
 border: 2px solid  $text_color ;  }
-b,strong{font-weight: 900;}
+b,strong{font-weight: 900; letter-spacing: 0.05em; color: $transparent_white }
 // NAVIGATION
 // NAVIGATION
 .mob_menu{
@@ -45,11 +55,11 @@ b,strong{font-weight: 900;}
 
 .mob_menu{
   background-color: $background_color;
-  display: inline-block !important;
+  display: inline-block  ;
   z-index: 101;
   padding: 0.5em;
   div {
-    display: inline-block !important;
+    display: inline-block  ;
   }
   .logo{ margin-right: 1em;
     background-color: $hover_b;
@@ -64,10 +74,10 @@ b,strong{font-weight: 900;}
     position: relative;
     animation-name: scrolling;
     animation-duration: 1s;
-    display: inline-block !important;
-    border-right: 2px solid $grey;
+    display: inline-block  ;
+    border-right: 2px solid $hover_b;
     padding-right: 3px;
-    p {  display: inline-block !important;      }
+    p {  display: inline-block  ;      }
     :hover{background-color: $hover_b; }
     a{ font-size: 1.3em;
        border: none;}
@@ -85,20 +95,21 @@ b,strong{font-weight: 900;}
 }
 
 .cont-padding{
-  padding: 5vw;
+  padding: 4vw;
 }
 
 u{text-decoration-color: $grey ;  }
-a {color: inherit ;
+a {color: $blue_accent ;
    padding: 0.1em  ;
   text-decoration: none ;
-  border-bottom: 0.05em solid lightgrey ;
   transition: all 0.2s; }
 
-a:hover{color: inherit  ;
+a:hover{
+  background-color: $hover_b;
+  color: inherit  ;
    padding: 0.1em  ;
    text-decoration: none ;
-    border-bottom: 0.05em solid grey }
+ }
 
 
 .margin-bottom{margin-bottom: 1em; }
@@ -123,7 +134,7 @@ a:hover{color: inherit  ;
 .round-box div{padding:3em ;}
 
 html,body{
-background-color:  $background_color;
+// background-color:  $background_color;
 color:  $text_color;
 font-family:  $font;
 max-width: 100%;
@@ -182,6 +193,10 @@ background-color: $box_color_light;
   }
 }
 
+.background_light{background-color: $box_color_light;}
+.background_darker{background-color: $box_color_darker}
+
+
 .no-pad-left-right{padding-left: 0 ; padding-right: 0 }
 
 div{color: inherit; }
@@ -208,8 +223,33 @@ transform: translate(-50%, -50%);
 }
 
 
-.container-fluid{ padding: 0 !important;  }
+.container-fluid{ padding: 0  ;  }
 
 .background_color{background-color:  $background_color;    color:  $text_color ; }
+.background_color_2{background-color:  $background_color_2;    color:  $text_color ; }
+
 .text_color{color:  $text_color  ;}
 .text_2nd_color{color:  $text_2nd_color  ;}
+
+@media only screen and (max-width : 970px){
+  // div{border:1px solid red;}
+  [class*="col-"]{
+    margin-left: 0 ;
+    margin-right: 0 ;
+    padding-left: 0 ;
+    padding-right: 0 ;
+  }
+  .row{
+    margin-left: 0 ;
+    margin-right: 0 ;
+    padding-left: 0em ;
+    padding-right: 0em ;
+  }
+  .content-feed{
+    padding-left: 1em;
+    padding-right: 1em ;
+  }
+  .padding_small{padding: 0.5em ;}
+  .padding_medium{padding: 1em; }
+  .padding_large{padding: 1.5em; }
+}

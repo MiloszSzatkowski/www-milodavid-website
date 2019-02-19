@@ -14,6 +14,8 @@ wp_enqueue_style( 'simplebar_css', "https://unpkg.com/simplebar@latest/dist/simp
 
 wp_enqueue_script( 'component_js', get_template_directory_uri() . '/js/component.js' ,  array(), '', 'all' );
 wp_enqueue_script( 'aos', get_template_directory_uri() . '/js/aos.js' ,  array(), '', 'all' );
+wp_register_script( 'bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js' ,  array(), '', 'all' );
+wp_enqueue_script('bootstrap_js');
 wp_enqueue_script( 'simplebar_js', "https://unpkg.com/simplebar@latest/dist/simplebar.js" ,  array(), '', 'all' );
 
 }
