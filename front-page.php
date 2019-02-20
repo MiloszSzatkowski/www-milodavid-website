@@ -1,5 +1,38 @@
 <?php get_header(); ?>
 
+<?php $box_color = 'rgba(10,10,10,0.5)' ?>
+
+<style media="screen">
+
+.back-colored{background: linear-gradient(0deg, rgba(50,50,50,0.9), rgba(50,50,50,0.95)  ),
+  url('http://milodavid.local/wp-content/uploads/2019/02/Geo-Marquetry-9.jpg') repeat local center ;  }
+
+  .back-colored-art{
+    background: linear-gradient(90deg, <?=$box_color?> ,  rgba(0,0,0,0.95), rgba(0,0,0,0.95), <?=$box_color?>  ),
+    url('http://milodavid.local/wp-content/uploads/2019/02/panel-art.jpg') repeat local center ;
+    background-size: cover;
+    text-align: center;
+  }
+  .back-colored-art h2{font-size: 2em;}
+
+  .back-colored-design{
+    background: linear-gradient(90deg, <?=$box_color?>  , rgba(0,0,0,0.85), rgba(0,0,0,0.85), <?=$box_color?>  ),
+    url('http://milodavid.local/wp-content/uploads/2019/02/panel-design.jpg') repeat local center;
+    background-size: cover;
+    text-align: center;
+  }
+  .back-colored-design h2{font-size: 2em;}
+
+  .back-colored-programm{
+    background: linear-gradient(90deg, <?=$box_color?> , rgba(0,0,0,0.95), rgba(0,0,0,0.95), <?=$box_color?>  ),
+    url('http://milodavid.local/wp-content/uploads/2019/02/panel-programming.jpg') repeat local center;
+    background-size: cover;
+    text-align: center;
+  }
+  .back-colored-programm h2{font-size: 2em;}
+
+  </style>
+
 <div class="container-fluid main-background " style="margin-top:4.5em;">
 
   <div class="row ">
@@ -35,44 +68,106 @@
       <div class="col-md-4 padding_small d-none d-lg-block" style="line-height: 3em; color:grey;">
         <?=get_option('my_offer')?>
       </div>
-
     </div>
 
-    <div class="col-xl-8 row cont-padding content-feed">
+    <script type="text/javascript">
+    var POSTS_ARR_CONTENT = [
 
-      <?php $box_color = 'rgba(10,10,10,0.5)' ?>
+    <?php
+    $args = array( 'post_type' => 'design', 'posts_per_page' => 50 );
+    $loop = new WP_Query( $args );
+    $ind = 0;
 
-      <style media="screen">
+    while ( $loop->have_posts() ) : $loop->the_post();
+    ?>
+      <?php echo '{' ?>
 
-      .back-colored{background: linear-gradient(0deg, rgba(50,50,50,0.9), rgba(50,50,50,0.95)  ),
-      url('http://milodavid.local/wp-content/uploads/2019/02/Geo-Marquetry-9.jpg') repeat local center ;  }
+      <?php echo 'ind:' ?>
+      <?php echo $ind ?>
+      <?php echo ',' ?>
 
-      .back-colored-art{
-      background: linear-gradient(90deg, <?=$box_color?> ,  rgba(0,0,0,0.95), rgba(0,0,0,0.95), <?=$box_color?>  ),
-      url('http://milodavid.local/wp-content/uploads/2019/02/panel-art.jpg') repeat local center ;
-      background-size: cover;
-      text-align: center;
-    }
-      .back-colored-art h2{font-size: 2em;}
+      <?php echo 'content:' ?>
+      <?php
+      if ( !empty( get_the_content() ) ){
+        $content = apply_filters( 'the_content', get_the_content() );
+        echo json_encode( $content );
+      } else {
+         echo 'null';
+      } ;
+      ?>
+      <?php echo ',' ?>
 
-      .back-colored-design{
-      background: linear-gradient(90deg, <?=$box_color?>  , rgba(0,0,0,0.85), rgba(0,0,0,0.85), <?=$box_color?>  ),
-      url('http://milodavid.local/wp-content/uploads/2019/02/panel-design.jpg') repeat local center;
-      background-size: cover;
-      text-align: center;
+      <?php echo 'title:' ?>
+      <?php
+      if ( !empty( get_the_title() ) ){
+        $content = apply_filters( 'the_title', get_the_title() );
+        echo json_encode( $content );
+      } else {
+         echo 'null';
+      } ;
+      ?>
+      <?php echo ',' ?>
+
+      <?php echo 'thumbnail:' ?>
+      <?php
+      if ( !empty( get_field('thumbnail') ) ){
+        $content = apply_filters( 'the_field', get_field('thumbnail')['sizes']['medium'] );
+        echo json_encode( $content );
+      } else {
+         echo 'null';
+      } ;
+      ?>
+      <?php echo ',' ?>
+
+      <?php echo 'gallery_tags:' ?>
+      <?php
+      echo "[";
+      for ($i=0; $i < 10; $i++) {
+        echo "[";
+        $current_id = 'text_' . ($i + 1);
+        $current_gallery_id = 'gallery_' . ($i + 1);
+        if ( !empty( get_field($current_id) ) ){
+          $content = apply_filters( 'the_field', get_field( $current_id ) );
+          echo json_encode( $content );
+          $images = acf_photo_gallery($current_gallery_id, $post->ID);
+          if (count($images)>0) {
+            echo ",";
+            for ($j=0; $j < count($images); $j++) {
+              $full_image_url = $images[$j]['full_image_url'];
+              echo json_encode($full_image_url);
+              if ($j!= (count($images)-1)) {
+                echo ",";
+              }
+            }
+          }
+        } else {
+           echo 'null';
+        }
+        echo "]";
+        if ($i!=9) {
+          echo ",";
+        }
       }
-    .back-colored-design h2{font-size: 2em;}
+      echo "]";
+      ?>
+      <?php echo '' ?>
 
-      .back-colored-programm{
-      background: linear-gradient(90deg, <?=$box_color?> , rgba(0,0,0,0.95), rgba(0,0,0,0.95), <?=$box_color?>  ),
-      url('http://milodavid.local/wp-content/uploads/2019/02/panel-programming.jpg') repeat local center;
-      background-size: cover;
-      text-align: center;
-     }
-      .back-colored-programm h2{font-size: 2em;}
+      // END OF LOOP
+      <?php echo '},' ?>
 
-      </style>
+    <?php
 
+    $ind++; endwhile;
+
+    ?>
+    ];
+
+
+      console.log(POSTS_ARR_CONTENT);
+
+    </script>
+
+    <div class="col-xl-12  cont-padding content-feed ">
         <div class="background_color box-shadow bor-rad" style="width: 100%; margin: 0 auto;">
           <div class="padding_small ">
 
@@ -89,25 +184,14 @@
                       </h2>
                     </div>
 
+
                     <div class="col-lg-8 " >
-                      <h2 class=" d-none d-lg-block" style="text-align:center;">
-                        MY PROJECTS
+                      <h2 class=" d-none d-lg-block my_projects" style="text-align:center;">
                       </h2>
-                      <h2 class=" d-block d-lg-none" style="text-align:left; padding-top:1em;">
-                        MY PROJECTS
+                      <h2 class=" d-block d-lg-none my_projects" style="text-align:left; padding-top:1em;">
                       </h2>
                       <hr>
-                      <div class="row " style="margin-top:-2em; padding-left:1em; padding-right:1em;">
-
-                        <div class="col-md-12 mar-bottom padding_small"
-                        style="background-image:url(https://picsum.photos/200)">
-                          <a href="#" class="" style="background-color:rgba(0,0,0,0.7)"> Cristalstone adasda asdasd</a>
-                        </div>
-
-                        <div class="col-md-12 mar-bottom padding_small"
-                        style="background-image:url(https://picsum.photos/200)">
-                          <a href="#" class="" style="background-color:rgba(0,0,0,0.7)"> Cristalstone adasda asdasd</a>
-                        </div>
+                      <div class="row my_projects_items" style="margin-top:-2em; padding-left:1em; padding-right:1em;">
 
                       </div>
                     </div>
@@ -116,17 +200,40 @@
 
                   <div class="">
                     <div class="background_color_2 bor-rad" style="margin-top:1em;">
-                      <h3 class="padding_small" style="text-align:center;">
-                        CRISTALSTONE
+                      <h3 class="padding_small post_title" style="text-align:center;">
+                        POST TITLE
                       </h3>
+
                       <div class="row">
-                        <div class="col-md-12" style="">
-                          <div class="background_light padding_large" style="min-height:100%;">
-                            <h3 style="padding-bottom:1em;">introduction</h3>
-                            Lorem ipsum dolor sit amet, consectetur
-                            Lorem ipsum dolor sit amet, consectetur
-                            Lorem ipsum dolor sit amet, consectetur
-                            Lorem ipsum dolor sit amet, consectetur
+                        <div class="col-md-12 " style="max-width:100%;">
+                          <div class="background_light">
+                            <div class=" padding_medium row" style="min-height:100%;">
+                              <div class="col-xl-3 col-lg-2 col-md-6 col-sm-6 col-6 order-lg-1 order-md-1 wrapper-control">
+                                <a class="carousel-control-prev control-posts" data-target="" role="button"
+                                  style="">
+                                <span class="carousel-control-prev-icon" aria-none="true">
+                                </span>
+                                <p>
+                                  PREVIOUS PROJECT
+                                </p>
+                                </a>
+                             </div>
+                             <div class="col-xl-3 col-lg-2 col-md-6  col-sm-6 col-6 wrapper-control order-lg-3 order-md-2 order-sm-2 order-xs-2">
+                               <a class="carousel-control-next control-posts" data-target="" role="button"
+                               style="">
+                               <p>
+                                 NEXT  PROJECT
+                               </p>
+                               <span class="carousel-control-next-icon" aria-none="true">
+                               </span>
+                             </a>
+                           </div>
+                              <div class="col-xl-6 col-lg-8 col-md-12 order-lg-2 order-md-3 order-sm-3 order-xs-3">
+                                <p class="paste_content">
+                                  POST CONTENT
+                                </p>
+                              </div>
+                            </div>
                           </div>
                         </div>
 
@@ -147,7 +254,7 @@
                       </div>
 
                       <!-- GALERIE!!!!!!!!!!!!!!!!!!!!!!! -->
-                      <div class="">
+<div class="">
 
 
 <style media="screen">
@@ -245,62 +352,25 @@
     </div>
   </div>
   </div>
+  <!-- DIV BELOW - END OF GALLERY -->
 </div>
 
 
                       </div>
                     </div>
                   </div>
-
-                  <?php
-                    $args = array( 'post_type' => 'design', 'posts_per_page' => 50 );
-                    $loop = new WP_Query( $args );
-                    $ind = 0;
-                    while ( $loop->have_posts() ) : $loop->the_post();
-                    ?>
-                    <?php echo the_title() ;?>
-
-                   <?php $ind++; endwhile; ?>
                 </div>
-              </div>
-
-              <div class="padding_large">
-                <?=get_option('des_intro')?>
               </div>
             </div>
-
-              <div class="   no-pad-left-right margin-bottom " style="">
-                <div class="back-colored-design padding_large" style="">
-                  <h2 class=" text_2nd_color">
-                    PROGRAMMING
-                  </h2>
-                </div>
-                <div class="padding_large">
-                  <?=get_option('prog_intro')?>
-                </div>
-              </div>
-
-              <div class="   no-pad-left-right margin-bottom " style="">
-                <div class="back-colored-art padding_large" style="">
-                  <h2 class=" text_2nd_color">
-                    ART
-                  </h2>
-                </div>
-                <div class="padding_large">
-                  <?=get_option('art_intro')?>
-                </div>
-              </div>
-
           </div>
+          <!-- DIV BELOW - END OF CONTENT DIV -->
         </div>
 
-      </div>
 
-      <div class="col-md-4" >
+        <!-- DIV BELOW - END OF MAIN PAGE ROW DIV -->
       </div>
-
+      <!-- DIV BELOW - END OF MAIN PAGE DIV -->
     </div>
-</div>
 
 </body>
 

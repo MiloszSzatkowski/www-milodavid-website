@@ -6,7 +6,7 @@ $dir_uri = '/wp-content/themes/minimalistic-black-theme/';
 
 add_theme_support( 'title-tag' );
 add_theme_support( 'automatic-feed-links' );
-add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-thumbnails', array( 'post', 'page' )  );
 
 function theme_styles_and_scripts (){
 
@@ -44,6 +44,8 @@ function create_posttype() {
             'has_archive' => true,
             'taxonomies' => array( 'category' ),
             'rewrite' => array('slug' => 'design'),
+            'supports' => array( 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'title'),
+
         )
     );
     register_post_type( 'art',
@@ -57,6 +59,8 @@ function create_posttype() {
             'has_archive' => true,
             'taxonomies' => array( 'category' ),
             'rewrite' => array('slug' => 'art'),
+            'supports' => array( 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'title'),
+
         )
     );
     register_post_type( 'programming',
@@ -70,9 +74,14 @@ function create_posttype() {
             'has_archive' => true,
             'taxonomies' => array( 'category' ),
             'rewrite' => array('slug' => 'programming'),
+           'supports' => array( 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'title'),
         )
     );
 }
+
+add_post_type_support( 'programming', 'thumbnail' );
+add_post_type_support( 'art', 'thumbnail' );
+add_post_type_support( 'design', 'thumbnail' );
 
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );
