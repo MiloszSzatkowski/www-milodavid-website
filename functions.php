@@ -28,6 +28,11 @@ wp_enqueue_script( 'aos', get_template_directory_uri() . '/js/aos.js' ,  array()
 wp_register_script( 'bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js' ,  array(), '', 'all' );
 wp_enqueue_script('bootstrap_js');
 
+wp_enqueue_script( 'lining_js', 'https://cdn.jsdelivr.net/lining.js/0.3.3/lining.min.js',  array(), '', '' );
+wp_enqueue_script( 'lining_js_eff', 'https://cdn.jsdelivr.net/lining.js/0.3.3/lining.effect.min.js',  array(), '', '' );
+
+
+
 }
 add_action( 'wp_enqueue_scripts', 'theme_styles_and_scripts' );
 
