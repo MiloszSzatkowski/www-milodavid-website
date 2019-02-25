@@ -35,11 +35,11 @@ jQuery(function($) {
       });
 
 
-    deliver_(['post_titles', 'paste_title', 'paste_content', 'create_gallery','warp_in_gallery_titles'],CURRENT_POST_IND,0);
+    deliver_(['post_titles', 'paste_title', 'paste_content', 'create_gallery','warp_in_gallery_titles'],CURRENT_POST_IND);
 
   });
 
-  function deliver_(jobs, job_index, inner_gal_job_index) {
+  function deliver_(jobs, job_index) {
 
     for (var i = 0; i < jobs.length; i++) {
 
@@ -80,7 +80,7 @@ jQuery(function($) {
           event.preventDefault();
           var index_of_change = parseInt($(this).data("index"));
           CURRENT_POST_IND = index_of_change;
-          deliver_(['post_titles', 'paste_title', 'paste_content', 'warp_in_gallery_titles'],CURRENT_POST_IND,0);
+          deliver_(['post_titles', 'paste_title', 'paste_content', 'warp_in_gallery_titles',  'create_gallery'],CURRENT_POST_IND,0);
         });
       }
 
@@ -95,6 +95,7 @@ jQuery(function($) {
       if ( jobs[i] == 'paste_content'  ) {
         for (var j = 0; j < POSTS_ARR_CONTENT.length; j++) {
           if (j === job_index) {
+            $('.summary').html(POSTS_ARR_CONTENT[job_index].summary);
             $('.paste_content').html(POSTS_ARR_CONTENT[job_index].content);
           }
         }
@@ -106,24 +107,43 @@ jQuery(function($) {
           if (j === job_index) {
             for (var k = 0; k < POSTS_ARR_CONTENT[job_index].gallery_tags.length; k++) {
               var gal_tag = POSTS_ARR_CONTENT[job_index].gallery_tags[k][0];
+              var nm_of_pictures = 0;
+              for (var w = 1; w < POSTS_ARR_CONTENT[job_index].gallery_tags[k].length; w++) {
+                if ( POSTS_ARR_CONTENT[job_index].gallery_tags[k][w] !== null ) {
+                  nm_of_pictures++;
+                }
+              }
               if (gal_tag != null) {
-                all_titles.push(gal_tag);
+                all_titles.push({tag: gal_tag, nm_pict: nm_of_pictures});
               }
             }
             if (all_titles.length > 0) {
               var accum = '';
+
+              var data_slide_ind = 0;
               for (var l = 0; l < all_titles.length; l++) {
-                accum = accum + ' <a href="#" class="on_click_load_new_gall"> ' + all_titles[l] + ' </a> ';
+
+                if (l>0) {
+                  if (all_titles[l].tag != all_titles[l-1].tag) { data_slide_ind = data_slide_ind + all_titles[l].nm_pict; }
+                  if ((l === all_titles.length-1) && (all_titles[l].nm_pict == 1)) { data_slide_ind ++;  }
+                  accum = accum + ' <a href="#" class="on_click_load_new_gall" data-target="#nav__0" '+
+                  'data-inner_html="' + all_titles[l].tag  + '" ' +   ' data-slide-to="'  + data_slide_ind +  '" > ' +
+                  all_titles[l].tag + ' </a> ';
+                } else if (l===0) {
+                  accum = accum + ' <a href="#" class="on_click_load_new_gall a_hovered" data-target="#nav__0" '+
+                  'data-inner_html="' + all_titles[l].tag  + '" ' +   ' data-slide-to="'  + 0 +  '" > ' +
+                  all_titles[l].tag + ' </a> ';
+                }
+
                 if (l!==(all_titles.length-1)) {
                   accum = accum + ' | ';
                 }
               }
+              // console.log(accum);
+
               $('.warp_in_gallery_titles').html(accum);
               $('.on_click_load_new_gall').on("click", function (event) {
                 event.preventDefault();
-                $('.on_click_load_new_gall').removeClass('a_hovered');
-                $(this).addClass('a_hovered');
-                deliver_('create_gallery', CURRENT_POST_IND , parseInt( $(this).index() )  );
               });
             }
           }
@@ -132,21 +152,79 @@ jQuery(function($) {
 
       if ( jobs[i] == 'create_gallery'  ) {
 
+        var gallery_objects = [];
+        var gallery_objects_tags = [];
+        for (var j = 0; j < POSTS_ARR_CONTENT.length; j++) {
+          if (j === job_index) {
+            for (var k = 0; k < POSTS_ARR_CONTENT[job_index].gallery_tags.length; k++) {
 
-        gallery_nav = '<div data-target="#nav__0" data-slide-to="0" class="active" style="bottom:0%;">' +
-          '<img src="http://milosciszaman.pl/wp-content/uploads/2017/12/22281935_1446576892085878_6620871302545168209_n-150x150-50x50.jpg"' +
-          'alt="" style="height:5vh; margin-left:0.2em; margin-right:0.2em;">' +
-        '</div>';
+              for (var l = 1; l < POSTS_ARR_CONTENT[job_index].gallery_tags[k].length; l++) {
 
-        gallery_inner = '    <div class="carousel-item active">' +
-          '<img id="" class="d-block img-fluid gallery_img" data-src="" alt=""' +
-        '    src="" data-holder-rendered="true"' +
-        '  style="background-image:url(http://milosciszaman.pl/wp-content/uploads/2017/12/22281935_1446576892085878_6620871302545168209_n.jpg);">' +
-          '</div>';
+                  var image_url = POSTS_ARR_CONTENT[job_index].gallery_tags[k][l];
+                  if ((image_url != null) && (image_url != undefined)) {
+                    gallery_objects_tags.push(POSTS_ARR_CONTENT[job_index].gallery_tags[k][0]);
+                    gallery_objects.push(image_url);
+                  }
 
-          $('.carousel-indicators').html(gallery_nav);
+              }
+            }
 
-          $('.carousel-inner').html(gallery_inner);
+            // console.log(gallery_objects_tags);
+
+            var gallery_nav = ''; var gallery_inner = '';
+            if (gallery_objects.length > 0) {
+              for (var l = 0; l < gallery_objects.length; l++) {
+
+                if (l === 0) {
+                  var active = 'active';
+                } else {
+                  var active = ' ';
+                }
+
+                gallery_nav = gallery_nav + '<div data-target="#nav__0" data-slide-to="'  + l +  '" class="'  + active +  '" style="bottom:0%;">' +
+                  '<img src="'+ gallery_objects[l] +
+                  '" alt="" style=" margin-left:0.2em; margin-right:0.2em; opacity:0.5;">' +
+                '</div>';
+
+                gallery_inner = gallery_inner + '    <div class="carousel-item ' + active + '" data-inner_html="'+ gallery_objects_tags[l] +' " '+
+                ' " style="padding-top:4.5%;padding-bottom:0.5%;">  ' +
+                  '<span id="" class="d-block img-fluid gallery_img" data-src="" alt="" ' +
+                '    src="" data-holder-rendered="true"  ' +
+                '  style="background-image:url(' + gallery_objects[l] + ');" >'+
+                  '  </span> </div> ';
+
+              }
+
+
+
+            }
+
+            $('.carousel-indicators').html(gallery_nav);
+            $('.carousel-inner').html(gallery_inner);
+
+
+            $('#nav__0').bind('slid.bs.carousel', function (e) {
+              setTimeout(function () {
+                $('.on_click_load_new_gall').removeClass('a_hovered');
+
+                var this_ht = $('.carousel-inner .active ').data('inner_html');
+                var this_ht = $.trim(this_ht.toString());
+                var tot_arr = document.getElementsByClassName('on_click_load_new_gall');
+                var check = false;
+                var sett = [];
+                ind_= 0;
+                for (var q = 0; q < tot_arr.length; q++) {
+                  sett.push($.trim(tot_arr[q].dataset.inner_html.toString()));
+                }
+                  var arraycontainsturtles = (sett.indexOf(this_ht) > -1);
+                if (arraycontainsturtles) {
+                    tot_arr[sett.indexOf(this_ht)].classList.add('a_hovered');
+                }
+              }, 100);
+            });
+
+          }
+        }
 
       }
 

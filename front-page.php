@@ -27,6 +27,17 @@ while ( $loop->have_posts() ) : $loop->the_post();
   ?>
   <?php echo ',' ?>
 
+  <?php echo 'summary:' ?>
+  <?php
+  if ( !empty( get_field('summary') ) ){
+    $content = apply_filters( 'the_field', get_field('summary'));
+    echo json_encode( $content );
+  } else {
+     echo 'null';
+  } ;
+  ?>
+  <?php echo ',' ?>
+
   <?php echo 'post_type:' ?>
   <?php
     echo json_encode( get_post_type() );
@@ -254,10 +265,10 @@ $ind++; endwhile;
               <div class="background_color_2  " style="margin-top:1em;">
 
                 <div class="row">
-                  <h3 class="padding_small post_title col-xl-6 col-lg-8 col-md-12 order-lg-2 order-md-3 order-sm-3 order-xs-3" style="text-align:center;">
+                  <h3 class="padding_small post_title col-xl-6 col-lg-4 col-md-12 order-lg-2 order-md-3 order-sm-3 order-xs-3" style="text-align:center;">
                     POST TITLE
                   </h3>
-                  <div class="col-xl-3 col-lg-2 col-md-6 col-sm-6 col-6 order-lg-1 order-md-1 wrapper-control">
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6 order-lg-1 order-md-1 wrapper-control">
                     <a class="carousel-control-prev control-posts" data-target="" role="button"
                       style="">
                     <span class="carousel-control-prev-icon" aria-none="true">
@@ -267,7 +278,7 @@ $ind++; endwhile;
                     </p>
                     </a>
                  </div>
-                 <div class="col-xl-3 col-lg-2 col-md-6  col-sm-6 col-6 wrapper-control order-lg-3 order-md-2 order-sm-2 order-xs-2">
+                 <div class="col-xl-3 col-lg-4 col-md-6  col-sm-6 col-6 wrapper-control order-lg-3 order-md-2 order-sm-2 order-xs-2">
                    <a class="carousel-control-next control-posts" data-target="" role="button"
                    style="">
                    <p>
@@ -281,28 +292,36 @@ $ind++; endwhile;
 
 
                 <div class="row">
-                  <div class="col-lg-4 background_light" style="padding-left:0;padding-right: 0;">
+                  <div class="col-xl-4 background_light" style="padding-left:0;padding-right: 0;">
                     <div class="background_light padding_medium">
                       <div class=" padding_medium row" style="min-height:100%;">
 
-                        <div class="" style="min-height:100%;">
-                          <p class="paste_content" >
+                        <div class="paste_content_wrap" >
+                          <p id="" class="summary" style="margin-bottom:2em;">
+                            POST SUMMARY
+                          </p>
+                          <p id="paste_content" class="paste_content collapse"
+                          >
                             POST CONTENT
                           </p>
+                          <a class="collapsed" data-toggle="collapse" href=""
+                          data-target="#paste_content" style="margin-top:1em;"
+                           onload=""></a>
                         </div>
+
                       </div>
                     </div>
                   </div>
 
-                  <div class="col-lg-8" style="padding-left:0;padding-right: 0;">
+                  <div class="col-xl-8" style="padding-left:0;padding-right: 0;">
                     <div class="row   ">
                         <div class="col-md-12" style="">
-                          <div class="background_darker padding_medium d-md-none d-block" style="text-align:center;">
-                            Galleries:
+                          <div class="background_darker d-md-none d-block" style="text-align:center;padding-top:1em;font-weight:900;">
+                            Galleries
                           </div>
                           <div class="flex-blocked" style="display:flex; width:100%;">
-                            <div class="background_darker padding_medium d-none d-md-block" style="min-height:100%;">
-                              Galleries:
+                            <div class="background_darker padding_medium d-none d-md-block" style="min-height:100%;border-right:2px solid lightgrey;">
+                              Galleries
                             </div>
                             <div class="background_darker padding_small warp_in_gallery_titles" style="width:100%;">
                             </div>

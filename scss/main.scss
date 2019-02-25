@@ -22,11 +22,67 @@ $grad_1 :  #8079FA ;
 $grad_2 :  #F36D90;
 
 
-.gallery_img{
-  height:75vh;
-  background-position: center center;
-  background-repeat: no-repeat;
+
+.paste_content_wrap a.collapsed:after  {
+    content: '+ Read More';
 }
+
+.paste_content_wrap a:not(.collapsed):after {
+    content: '- Read Less';
+}
+
+
+.galleries{
+  .gallery_img{
+    height:72vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .active {
+    img{
+      opacity:0.9!important;
+      background-color: 0;
+    }
+  }
+
+    .carousel-indicators{
+      :hover{
+        opacity:0.9!important;
+      }
+      .active{
+        background-color: transparent!important;
+      }
+      div{
+        img{
+          width: 50%;
+          height: auto;
+        }
+      }
+      display: block;
+      margin-left: 0;
+      margin-right: 0;
+      width: 5vw;
+    }
+
+  .carousel-control-next, .carousel-control-prev{
+    width: 50%;
+    height: 5%;
+    background-color: rgba(0,0,0,0.1);
+  }
+
+  .carousel-control-next-icon{
+   filter: invert(100%);
+   }
+
+  .carousel-control-prev-icon {
+   filter: invert(100%);
+  }
+}
+
+
+
 
 
 .red{
@@ -170,7 +226,7 @@ b,strong{font-weight: 900; letter-spacing: 0.05em; color: $transparent_white }
 }
 
 
-html {    height: 100%; }
+html {    height: 100%; overflow:hidden; }
 
 body, .main-container {
     height: 100%;
@@ -229,7 +285,7 @@ a:hover{
 
 .a_hovered {
   background-color: rgba(0, 0, 0, 0.5);
-  color: inherit;
+  color: white;
   padding: 0.1em;
   text-decoration: none;
 }
