@@ -21,7 +21,13 @@ $red : red;
 $grad_1 :  #8079FA ;
 $grad_2 :  #F36D90;
 
+#wpadminbar{
+  display: none;
+}
 
+#right {
+  scroll-behavior: smooth;
+}
 
 .paste_content_wrap a.collapsed:after  {
     content: '+ Read More';
@@ -34,7 +40,7 @@ $grad_2 :  #F36D90;
 
 .galleries{
   .gallery_img{
-    height:72vh;
+    height:68vh;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -48,6 +54,8 @@ $grad_2 :  #F36D90;
   }
 
     .carousel-indicators{
+      top: 2em;
+      max-height : 20%;
       :hover{
         opacity:0.9!important;
       }
@@ -56,14 +64,18 @@ $grad_2 :  #F36D90;
       }
       div{
         img{
-          width: 50%;
-          height: auto;
+          // width: 50%;
+          height: 1em;
         }
       }
-      display: block;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:center;
+      align-items: flex-start;
       margin-left: 0;
       margin-right: 0;
-      width: 5vw;
+      // width: 100%;
     }
 
   .carousel-control-next, .carousel-control-prev{
@@ -80,9 +92,6 @@ $grad_2 :  #F36D90;
    filter: invert(100%);
   }
 }
-
-
-
 
 
 .red{
@@ -111,6 +120,7 @@ $grad_2 :  #F36D90;
     -webkit-filter: grayscale(50%); /* Safari */
       filter: grayscale(50%);
   }
+
     :hover{
       cursor: pointer;
       transition: all 0.5s ;
@@ -200,6 +210,11 @@ b,strong{font-weight: 900; letter-spacing: 0.05em; color: $transparent_white }
       li{
         width: 100%;
         padding: 0.2em;
+        :hover{
+          background-color: $hover_b;
+          color: $text_3nd_color  ;
+           text-decoration: none ;
+         }
         a{
           color: $text_3nd_color;
           font-size: 1.5em;
@@ -211,6 +226,8 @@ b,strong{font-weight: 900; letter-spacing: 0.05em; color: $transparent_white }
   }
 }
 
+
+
 @media only screen and (max-width : 1500px){
 .menu_div{
   .mob_menu{
@@ -218,13 +235,26 @@ b,strong{font-weight: 900; letter-spacing: 0.05em; color: $transparent_white }
       li{
         a{
           font-size: 1em;
+          }
         }
-      }
+        }
     }
   }
 }
-}
 
+.post_title_backg{
+  background-color:darkgrey;
+  p,a,h3{
+    color:white;
+  }
+   a{
+     background-color: transparent;
+
+   }
+   .wrapper-control   :hover{
+        background-color: $grad_2;
+      }
+}
 
 html {    height: 100%; overflow:hidden; }
 
@@ -271,22 +301,21 @@ body, .main-container {
 
 u{text-decoration-color: $grey ;  }
 a {color: $text_color;
-   padding: 0.1em  ;
    // background-color: $background_color_2;
   text-decoration: none ;
-  transition: all 0.2s; }
+  transition: all 0.2s;
 
+}
 a:hover{
-  background-color: $hover_b;
-  color: $text_3nd_color  ;
-   padding: 0.1em  ;
-   text-decoration: none ;
- }
+  color: $grad_1;
+  text-decoration: none !important;
+  cursor: pointer;
+  }
+
 
 .a_hovered {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   color: white;
-  padding: 0.1em;
   text-decoration: none;
 }
 
@@ -417,6 +446,27 @@ transform: translate(-50%, -50%);
 
 .text_color{color:  $text_color  ;}
 .text_2nd_color{color:  $text_2nd_color  ;}
+
+@media (max-width : 2500px) and (min-width : 1195px){
+
+  .scroll_content{
+    max-height:70vh; overflow-y:scroll;
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+  }
+
+}
+
+
 
 
 @media only screen and (max-width : 970px){

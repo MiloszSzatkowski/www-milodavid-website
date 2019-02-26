@@ -22,7 +22,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
     $content = apply_filters( 'the_content', get_the_content() );
     echo json_encode( $content );
   } else {
-     echo 'null';
+     // echo 'null';
   } ;
   ?>
   <?php echo ',' ?>
@@ -33,7 +33,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
     $content = apply_filters( 'the_field', get_field('summary'));
     echo json_encode( $content );
   } else {
-     echo 'null';
+     // echo 'null';
   } ;
   ?>
   <?php echo ',' ?>
@@ -50,7 +50,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
     $content = apply_filters( 'the_title', get_the_title() );
     echo json_encode( $content );
   } else {
-     echo 'null';
+     // echo 'null';
   } ;
   ?>
   <?php echo ',' ?>
@@ -61,7 +61,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
     $content = apply_filters( 'the_field', get_field('thumbnail')['sizes']['medium'] );
     echo json_encode( $content );
   } else {
-     echo 'null';
+     // echo 'null';
   } ;
   ?>
   <?php echo ',' ?>
@@ -87,8 +87,6 @@ while ( $loop->have_posts() ) : $loop->the_post();
           }
         }
       }
-    } else {
-       echo 'null';
     }
     echo "]";
     if ($i!=9) {
@@ -160,13 +158,19 @@ $ind++; endwhile;
               background-repeat: no-repeat;
               background-position: center center;
               background-image: url(http://milodavid.local/wp-content/uploads/2019/02/LOGO-1.png);
-               background-size: contain;">
+               background-size: contain; margin-top:2em;">
               </div>
             </a>
 
           <div id="mob_nav" class="mob_menu   " style="">
             <div class="">
-              <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+              <ul>
+                <li> <a href="#">Design</a> </li>
+                <li> <a href="#">Programming</a> </li>
+                <li> <a href="#">Art</a> </li>
+                <li> <a href="#">About</a> </li>
+                <li> <a href="#">Contact</a> </li>
+              </ul>
               <div class="contact_inf d-none d-lg-block" style="">
                 <p>  <?= get_option('mytel')?> </p>
                 <p><a href="mailto:design@milodavid.com">design@milodavid.com</a> </p>
@@ -186,7 +190,7 @@ $ind++; endwhile;
         style="display:flex; justify-content: center; flex-direction: column; ">
           <div class="text_2nd_color row"  style="padding-bottom:0;">
             <div class="col-xl-2"></div>
-            <div class="col-lg-8" style="">
+            <div class="col-xl-8 col-lg-12" style="">
               <div class="padding_small" style="display:flex;">
                 <div class="" style="padding-left: 1em;">
                   <div class="INTRO" style=" line-height:1.8em; transform: translateY(-10%)" data-lining data-effect="slideIn" data-auto-resize
@@ -212,9 +216,9 @@ $ind++; endwhile;
 
 
                   </div>
-                  <div id="explore" class="button" name="button">
+                  <a id="explore" class="button" name="button" href="#projects">
                       explore <i class="fas fa-chevron-right"></i>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -223,7 +227,7 @@ $ind++; endwhile;
         </div>
 
         <div class="col-xl-12   content-feed background_color_2">
-            <div class="projects   " style="width: 100%; margin: 0 auto;">
+            <div id="projects" class="projects   " style="width: 100%; margin: 0 auto;">
               <div class=" ">
 
                 <div class="   no-pad-left-right margin-bottom " style="">
@@ -261,15 +265,18 @@ $ind++; endwhile;
               <!-- DIV BELOW - END OF CONTENT DIV -->
             </div>
 
-            <div class="">
-              <div class="background_color_2  " style="margin-top:1em;">
+            <div class="col-xl-12 col-lg-12"  id=" " style="position:relative;">
+              <div id="post_t" class="">           </div>
+              <div id="contento" class="background_color_2  " style="margin-top:1em;">
 
-                <div class="row">
-                  <h3 class="padding_small post_title col-xl-6 col-lg-4 col-md-12 order-lg-2 order-md-3 order-sm-3 order-xs-3" style="text-align:center;">
+                <div class="row post_title_backg" >
+                  <h3  class="padding_small post_title col-xl-4 col-lg-4 col-md-12 order-lg-2 order-md-3 order-sm-3 order-xs-3" style="text-align:center;">
                     POST TITLE
                   </h3>
-                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6 order-lg-1 order-md-1 wrapper-control">
+
+                  <div id="next_project" class="next_project col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 order-lg-1 order-md-1 wrapper-control">
                     <a class="carousel-control-prev control-posts" data-target="" role="button"
+                      href="#post_t"
                       style="">
                     <span class="carousel-control-prev-icon" aria-none="true">
                     </span>
@@ -278,8 +285,9 @@ $ind++; endwhile;
                     </p>
                     </a>
                  </div>
-                 <div class="col-xl-3 col-lg-4 col-md-6  col-sm-6 col-6 wrapper-control order-lg-3 order-md-2 order-sm-2 order-xs-2">
+                 <div id="prev_project" class="prev_project col-xl-4 col-lg-4 col-md-6  col-sm-6 col-6 wrapper-control order-lg-3 order-md-2 order-sm-2 order-xs-2">
                    <a class="carousel-control-next control-posts" data-target="" role="button"
+                   href="#post_t"
                    style="">
                    <p>
                      NEXT  PROJECT
@@ -294,7 +302,7 @@ $ind++; endwhile;
                 <div class="row">
                   <div class="col-xl-4 background_light" style="padding-left:0;padding-right: 0;">
                     <div class="background_light padding_medium">
-                      <div class=" padding_medium row" style="min-height:100%;">
+                      <div class="scroll_content padding_medium row" style="">
 
                         <div class="paste_content_wrap" >
                           <p id="" class="summary" style="margin-bottom:2em;">
@@ -304,8 +312,9 @@ $ind++; endwhile;
                           >
                             POST CONTENT
                           </p>
-                          <a class="collapsed" data-toggle="collapse" href=""
-                          data-target="#paste_content" style="margin-top:1em;"
+
+                          <a class="collapsed button" data-toggle="collapse" href=""
+                          data-target="#paste_content" style="margin-top:1em;font-size:0.7em;"
                            onload=""></a>
                         </div>
 
@@ -316,14 +325,14 @@ $ind++; endwhile;
                   <div class="col-xl-8" style="padding-left:0;padding-right: 0;">
                     <div class="row   ">
                         <div class="col-md-12" style="">
-                          <div class="background_darker d-md-none d-block" style="text-align:center;padding-top:1em;font-weight:900;">
+                          <div class="background_darker d-lg-none d-block" style="text-align:center;padding-top:1em;font-weight:900;">
                             Galleries
                           </div>
                           <div class="flex-blocked" style="display:flex; width:100%;">
-                            <div class="background_darker padding_medium d-none d-md-block" style="min-height:100%;border-right:2px solid lightgrey;">
+                            <div class="background_darker padding_small d-none d-lg-block" style="padding-left:2em;padding-top:2em; min-height:100%;border-right:2px solid lightgrey;">
                               Galleries
                             </div>
-                            <div class="background_darker padding_small warp_in_gallery_titles" style="width:100%;">
+                            <div class="  padding_medium warp_in_gallery_titles" style="">
                             </div>
                           </div>
                         </div>
@@ -334,8 +343,10 @@ $ind++; endwhile;
                           <div class="bd-example galeria_duza_kontener">
                             <div id="nav__0" class="carousel slide" data-ride="carousel" data-interval="5000">
 
-                              <ol class="carousel-indicators">
-                              </ol>
+                              <div class="">
+                                <ol class="carousel-indicators ">
+                                </ol>
+                              </div>
 
                               <div class="carousel-inner" role="listbox">
                               </div>
@@ -360,6 +371,8 @@ $ind++; endwhile;
                         <!-- DIV BELOW - END OF GALLERY -->
                       </div>
 
+
+
                   </div>
 
 
@@ -369,17 +382,46 @@ $ind++; endwhile;
 
               </div>
 
+              <div class="row post_title_backg full-device-width" >
+                <h3  class="padding_small post_title col-xl-4 col-lg-4 col-md-12 order-lg-2 order-md-3 order-sm-3 order-xs-3" style="text-align:center;">
+                  POST TITLE
+                </h3>
+
+                <div id="next_project" class="next_project col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 order-lg-1 order-md-1 wrapper-control">
+                  <a class="carousel-control-prev control-posts" data-target="" role="button"
+                    href="#post_t"
+                    style="">
+                  <span class="carousel-control-prev-icon" aria-none="true">
+                  </span>
+                  <p>
+                    PREVIOUS PROJECT
+                  </p>
+                  </a>
+               </div>
+               <div id="prev_project" class="prev_project col-xl-4 col-lg-4 col-md-6  col-sm-6 col-6 wrapper-control order-lg-3 order-md-2 order-sm-2 order-xs-2">
+                 <a class="carousel-control-next control-posts" data-target="" role="button"
+                 href="#post_t"
+                 style="">
+                 <p>
+                   NEXT  PROJECT
+                 </p>
+                 <span class="carousel-control-next-icon" aria-none="true">
+                 </span>
+               </a>
+               </div>
+              </div>
+
+
 
             <!-- DIV BELOW - END OF MAIN PAGE ROW DIV -->
           </div>
         </div>
 
         <!-- containing content div -->
-        <div class="" style="display:flex;flex-wrap:wrap;">
 
-          <?php get_footer();?>
-        </div>
+        <?php get_footer();?>
       </div>
+
 
  <!-- end of page div -->
 </div>
