@@ -50,6 +50,54 @@
 .galleries .carousel-control-prev-icon {
   filter: invert(100%);
 }
+.content_styling {
+  padding: 3vw;
+}
+.content_styling p {
+  font-size: 0.8em;
+  padding: 1em 1em 1em 1em;
+}
+.content_styling b, .content_styling strong {
+  font-weight: 700;
+}
+.content_styling img {
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+}
+.content_styling h2 {
+  color: #8079fa;
+}
+.content_styling i, .content_styling em {
+  font-style: italic;
+}
+.content_styling .center_block {
+  padding-top: 2em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.content_styling .center_block b, .content_styling .center_block strong {
+  font-weight: 700;
+}
+.full-page-modal {
+  display: flex;
+  align-items: center;
+  padding: 2vw;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 125;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+}
+.full-page-modal .close {
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  font-size: 40px;
+  cursor: pointer;
+}
 .red {
   color: red;
 }
@@ -130,11 +178,6 @@ input, textarea {
   width: 100%;
   background-color: #f5f5f5;
   border: 2px solid #0a0a0a;
-}
-b, strong {
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.5);
 }
 .button {
   float: right;

@@ -10,6 +10,28 @@ jQuery(function($) {
     // SimpleBar
     $('.galleries').bcSwipe({ threshold: 50 });
 
+    $('.content_styling img').on('click', function() {
+      var that = this;
+      var src = $(that).attr('src');
+      $('body').append(
+      '  <div class="modal-init full-page-modal" style="display:none;">' +
+      '    <button type="button" class="close" aria-label="Close">' +
+      '      <span aria-hidden="true">&times;</span>' +
+      '    </button>' +
+      '    <div id="" class="" style="background-image:url('+  src +
+      '); background-size:contain;width:100%;height:100%;'+
+      'background-repeat:no-repeat;background-position:center center;"></div>' +
+      '  </div>'
+      );
+      $('.modal-init').fadeIn(400, function() {
+      })
+      $('.modal-init').on('click', function () {
+        $('.modal-init').fadeOut(400, function() {
+          $('.modal-init').remove();
+        })();
+      })
+    });
+
     $('.next_project').on('click', function () {
 
       if (CURRENT_POST_IND === POSTS_ARR_CONTENT.length-1) {

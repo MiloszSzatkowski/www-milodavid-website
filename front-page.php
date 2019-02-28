@@ -208,10 +208,7 @@ $ind++; endwhile;
                   <p></p>
 
                   <h3>
-                    My job is to make you look good with new
-                    branding, sell more products using unique
-                    marketing materials and save time by
-                    graphics automation.
+                    I'm designing new brands and develop modern websites for them.
                   </h3>
 
 
@@ -223,6 +220,42 @@ $ind++; endwhile;
               </div>
             </div>
             <div class="col-xl-2"></div>
+          </div>
+        </div>
+
+        <div class="col-md-12 background_color_2" style="height:15px;">
+
+        </div>
+
+        <div class="col-md-12 background_color" >
+          <div class="content_styling" style="width:100%;">
+
+            
+
+            <?php
+
+            wp_reset_query();
+
+
+
+            $child_pages = new WP_Query( array(
+                'post_type'      => 'page' // set the post type to page
+            ) );
+
+            if ( $child_pages->have_posts() ) : while ( $child_pages->have_posts() ) : $child_pages->the_post();
+                if ( !empty( get_the_title() ) ){
+                  $title_ = apply_filters( 'the_title', get_the_title() );
+                  // echo $title_;
+                  if($title_ ==   'Case Study' ){
+                      the_content();
+                  }
+                }
+            endwhile; endif;
+
+            wp_reset_postdata();
+
+            ?>
+
           </div>
         </div>
 
