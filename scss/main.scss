@@ -154,9 +154,9 @@ $grad_2 :  #F36D90;
 
 .full-page-modal{
   display: flex;
-  align-items: center;
+  justify-content: center;
   padding: 2vw;
-  width: 100vw;
+  width: 100vw!important;
   height: 100vh;
   position: fixed;
   z-index:125;
@@ -331,7 +331,6 @@ color: white;
 }
 
 .wpcf7{
-
   input[type="text"],input[type="email"],textarea{
   width: 100%;
   background-color:  rgba(255,255,255,0.2);
@@ -340,7 +339,6 @@ color: white;
   border-left: none;
   border-bottom: 2px solid  $grad_1 ;
   }
-
   textarea{
     height: 8em;
   }
@@ -349,7 +347,6 @@ color: white;
     padding: 0 1em 0 0 ;
     font-size: 0.8em;
   }
-
   input[type="text"]:hover,textarea:hover,input[type="text"]:focus ,textarea:focus,  input[type="email"]:hover ,
    input[type="email"]:focus{
     border-top: none;

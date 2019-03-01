@@ -32,6 +32,38 @@ jQuery(function($) {
       })
     });
 
+    $('.contact textarea').on('click', function () {
+      var text_cont = $('.contact textarea').val();
+      console.log(text_cont);
+      var www = window.innerWidth;
+      var text_w = '800px';
+      additional_css = '';
+      if (www < 1000) {
+        text_w = '90%';
+        additional_css = 'margin-top:3em;';
+      }
+      $('body').append(
+      '  <div class="modal-init full-page-modal" style="display:none;">' +
+      '    <button type="button" class="close" aria-label="Close" style="width:100%;height:100%;">' +
+      '      <span aria-hidden="true" style="box-shadow:0px 0px 40px 40px green; font-size:1em;position:absolute;right:0;top:0;"><i class="fas fa-check"></i></span>' +
+      '    </button>' +
+      ' <textarea id="textarea_content" class="" style="'+
+      'width:'+text_w+';height:90%;padding:2em; z-index:160; position:absolute;'+ additional_css +
+      '" placeholder="Write your messege here. You can close this box by clicking outside of it." >'+
+      text_cont+'</textarea>' +
+      '  </div>'
+      );
+      $('.modal-init').fadeIn(400, function() {      })
+      console.log(textarea_content);
+      $('.close').on('click', function (e) {
+        var textarea_content = $('#textarea_content').val();
+          $('.modal-init').fadeOut(400, function() {
+            $('.modal-init').remove();
+            $('textarea').val(textarea_content);
+          });
+      })
+    });
+
     $('.next_project').on('click', function () {
 
       if (CURRENT_POST_IND === POSTS_ARR_CONTENT.length-1) {

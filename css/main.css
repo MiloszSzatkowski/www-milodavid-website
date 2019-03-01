@@ -109,9 +109,9 @@
 }
 .full-page-modal {
   display: flex;
-  align-items: center;
+  justify-content: center;
   padding: 2vw;
-  width: 100vw;
+  width: 100vw !important;
   height: 100vh;
   position: fixed;
   z-index: 125;
