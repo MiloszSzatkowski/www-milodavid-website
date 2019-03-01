@@ -165,11 +165,9 @@ $ind++; endwhile;
           <div id="mob_nav" class="mob_menu   " style="">
             <div class="">
               <ul>
-                <li> <a href="#">Design</a> </li>
-                <li> <a href="#">Programming</a> </li>
-                <li> <a href="#">Art</a> </li>
-                <li> <a href="#">About</a> </li>
-                <li> <a href="#">Contact</a> </li>
+                <li> <a href="#projects">My works</a> </li>
+                <li> <a href="#">Q&A</a> </li>
+                <li> <a href="#contact">Contact</a> </li>
               </ul>
               <div class="contact_inf d-none d-lg-block" style="">
                 <p>  <?= get_option('mytel')?> </p>
@@ -187,50 +185,66 @@ $ind++; endwhile;
       <div class="row ">
 
         <div id="introduction-container" class="col-md-12 background_color   full-device-height "
-        style="display:flex; justify-content: center; flex-direction: column; ">
+        style="display:flex; justify-content: center; flex-direction: column; height:102vh;">
           <div class="text_2nd_color row"  style="padding-bottom:0;">
-            <div class="col-xl-2"></div>
-            <div class="col-xl-8 col-lg-12" style="">
+            <div class="col-xl-12" style="padding:0;">
               <div class="padding_small" style="display:flex;">
-                <div class="" style="padding-left: 1em;">
-                  <div class="INTRO" style=" line-height:1.8em; transform: translateY(-10%)" data-lining data-effect="slideIn" data-auto-resize
+                <div class="" style="">
+                  <div class="INTRO padding_large" style=" line-height:1.8em;
+
+                  " data-lining data-effect="slideIn"
+                  data-auto-resize
                   data-lining data-auto-resize>
 
-                  <h2>
+                  <h2 style="">
                     My name is Milo David. I'm a professional
                   </h2>
 
                   <p></p>
-                    <h1 style="padding: 1em 0 1em 0;">
+                    <h1 style="">
                     graphic designer and
                     coder.
                   </h1>
                   <p></p>
 
                   <h3>
-                    I'm designing new brands and develop modern websites for them.
+                    I'm designing branding solutions and develop modern websites.
                   </h3>
 
+                  <div class="row">
+                    <a id="" class="intro_button col-lg-5 col-md-12" name="button" href="#what_is_branding">
+                      <p>
+                        What is branding? <i class="fas fa-chevron-right"></i>
+                      </p>
+                    </a>
+                    <a id="" class="intro_button col-lg-7 col-md-12" name="button" href="#Example_of_branding">
+                      <p>
+                        Example of branding <i class="fas fa-chevron-right"></i>
+                      </p>
+                    </a>
+                    <a id="" class="intro_button col-lg-9 col-md-12" name="button" href="#projects">
+                      <p>
+                        My works <i class="fas fa-chevron-right"></i>
+                      </p>
+                    </a>
+                    <a id="" class="intro_button col-lg-3 col-md-12" name="button" href="#contact">
+                      <p>
+                        Contact <i class="fas fa-chevron-right"></i>
+                      </p>
+                    </a>
+                  </div>
 
                   </div>
-                  <a id="explore" class="button" name="button" href="#projects">
-                      explore <i class="fas fa-chevron-right"></i>
-                  </a>
                 </div>
               </div>
             </div>
-            <div class="col-xl-2"></div>
           </div>
         </div>
 
-        <div class="col-md-12 background_color_2" style="height:15px;">
-
-        </div>
-
+        <div id="what_is_branding" class="SEPARATOR_TITLE"> BRANDING</div>
         <div class="col-md-12 background_color" >
-          <div class="content_styling" style="width:100%;">
+          <div id="" class="content_styling" style="width:100%;">
 
-            
 
             <?php
 
@@ -264,27 +278,21 @@ $ind++; endwhile;
               <div class=" ">
 
                 <div class="   no-pad-left-right margin-bottom " style="">
+                  <div class="col-lg-12 row" style="margin-top:1em;">
+                    <h2 class=" d-none d-lg-block my_projects SEPARATOR_TITLE" style="">
+                      My works
+                    </h2>
+                    <h2 class=" d-block d-lg-none my_projects SEPARATOR_TITLE" style="">
+                      My works
+                    </h2>
+
+                  </div>
                   <div class="">
                     <div class="">
 
                       <div class="row padding_small">
 
-                        <div class="col-lg-12 row" >
-                          <h2 class=" d-none d-lg-block my_projects" style="text-align:center; width:100%;">
-                            MY PROJECTS
-                          </h2>
-                          <h2 class=" d-block d-lg-none my_projects" style="text-align:center; padding-top:1em; width:100%;">
-                            MY PROJECTS
-                          </h2>
-                          <hr>
 
-                          <div class="col-lg-12">
-                            <div class="row">
-
-                            </div>
-                          </div>
-
-                        </div>
                           <div class="row my_projects_items" style=" padding-left:1em; padding-right:1em;">
                           </div>
                         </div>
@@ -302,27 +310,30 @@ $ind++; endwhile;
               <div id="post_t" class="">           </div>
               <div id="contento" class="background_color_2  " style="margin-top:1em;">
 
-                <div class="row post_title_backg" >
-                  <h3  class="padding_small post_title col-xl-4 col-lg-4 col-md-12 order-lg-2 order-md-3 order-sm-3 order-xs-3" style="text-align:center;">
-                    POST TITLE
-                  </h3>
+                <div class="row post_title_backg" style="border-top: 2px solid #8079FA">
 
-                  <div id="next_project" class="next_project col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 order-lg-1 order-md-1 wrapper-control">
+
+                  <div id="next_project" class="next_project col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 wrapper-control">
                     <a class="carousel-control-prev control-posts" data-target="" role="button"
                       href="#post_t"
                       style="">
                     <span class="carousel-control-prev-icon" aria-none="true">
                     </span>
-                    <p>
+                    <p class="d-md-block d-none">
                       PREVIOUS PROJECT
                     </p>
                     </a>
                  </div>
-                 <div id="prev_project" class="prev_project col-xl-4 col-lg-4 col-md-6  col-sm-6 col-6 wrapper-control order-lg-3 order-md-2 order-sm-2 order-xs-2">
+
+                 <h3  class="padding_small post_title col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 " style="text-align:center;font-weight:500;">
+                   POST TITLE
+                 </h3>
+
+                 <div id="prev_project" class="prev_project col-xl-4 col-lg-4 col-md-4  col-sm-3 col-3 wrapper-control">
                    <a class="carousel-control-next control-posts" data-target="" role="button"
                    href="#post_t"
                    style="">
-                   <p>
+                   <p class="d-md-block d-none">
                      NEXT  PROJECT
                    </p>
                    <span class="carousel-control-next-icon" aria-none="true">
@@ -415,40 +426,62 @@ $ind++; endwhile;
 
               </div>
 
-              <div class="row post_title_backg full-device-width" >
-                <h3  class="padding_small post_title col-xl-4 col-lg-4 col-md-12 order-lg-2 order-md-3 order-sm-3 order-xs-3" style="text-align:center;">
-                  POST TITLE
-                </h3>
 
-                <div id="next_project" class="next_project col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 order-lg-1 order-md-1 wrapper-control">
-                  <a class="carousel-control-prev control-posts" data-target="" role="button"
-                    href="#post_t"
-                    style="">
-                  <span class="carousel-control-prev-icon" aria-none="true">
-                  </span>
-                  <p>
-                    PREVIOUS PROJECT
-                  </p>
-                  </a>
-               </div>
-               <div id="prev_project" class="prev_project col-xl-4 col-lg-4 col-md-6  col-sm-6 col-6 wrapper-control order-lg-3 order-md-2 order-sm-2 order-xs-2">
-                 <a class="carousel-control-next control-posts" data-target="" role="button"
-                 href="#post_t"
-                 style="">
-                 <p>
-                   NEXT  PROJECT
-                 </p>
-                 <span class="carousel-control-next-icon" aria-none="true">
-                 </span>
-               </a>
-               </div>
+              <div class="col-md-12" style="height:1em;">             </div>
+
+
+              <div id="contact" class="SEPARATOR_TITLE">
+                Contact
+              </div>
+
+              <div class="col-md-12 padding_large">
+                <div class="contact row" style="">
+
+                  <h4 class="col-md-12" style="width:100%; text-align: center; display:block;font-weight:500;">
+                    <div class="" style="display:flex; justify-content:center;">
+
+                    Please fill out the quick form or email me and I will be in touch with lightening speed.
+
+                  </div>
+                  </h4>
+
+                  <div class="col-lg-6">
+
+                  <div class="" style="display:flex; justify-content:center;">
+                    <div class="">
+                      <?php echo do_shortcode( '[contact-form-7 id="1234" title="Contact form 1"]' ); ?>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="col-lg-6">
+                <div class="" style="display:flex; justify-content:center;">
+                  <div class="col-md-12 padding_large">
+                    <p>
+                      Milo David Art & Design Limited
+                    </p>
+                    <a class="intro_button" href="<?= get_option('mytel')?>"> <p><?= get_option('mytel')?>  </p> </a>
+                    <p></p>
+                    <a class="intro_button" href="mailto:design@milodavid.com"> <p>design@milodavid.com</p> </a>
+                    <p>
+                      Working hours:
+                    </p>
+                    <p>Monday-Saturday: 8.00 am - 8.00 pm</p>
+                    <p>Based in: Coventry</p>
+                  </div>
+                </div>
               </div>
 
 
+                </div>
+              </div>
 
             <!-- DIV BELOW - END OF MAIN PAGE ROW DIV -->
           </div>
         </div>
+
+
 
         <!-- containing content div -->
 

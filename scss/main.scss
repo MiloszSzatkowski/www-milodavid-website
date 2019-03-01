@@ -21,6 +21,35 @@ $red : red;
 $grad_1 :  #8079FA ;
 $grad_2 :  #F36D90;
 
+.SEPARATOR_TITLE{
+  margin-top: -0.3em;
+  margin-bottom: 0.3em;
+  transform: scale(1.2);
+  width: 100%;
+  text-align:center; padding:1em; font-weight:700; font-size:2em;
+  color: white;
+  background-color: $grad_1;
+  text-transform: uppercase;
+
+  background-size: contain;
+  background: #1e5799;
+    background: -moz-linear-gradient(top,  $grad_1 0%, $grad_2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$grad_1), color-stop(100%,$grad_2));
+    background: -webkit-linear-gradient(top,  $grad_1 0%,$grad_2 100%);
+    background: -o-linear-gradient(top,  $grad_1 0%,$grad_2 100%);
+    background: -ms-linear-gradient(top,  $grad_1 0%,$grad_2 100%);
+    background: linear-gradient(to bottom,  $grad_1 0%,$grad_2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$grad_1, endColorstr=$grad_2,GradientType=0 );
+    background-attachment: fixed;
+
+}
+
+@media (max-width: 1000px){
+  .SEPARATOR_TITLE{
+    font-size:1.5em;
+  }
+}
+
 #wpadminbar{
   display: none;
 }
@@ -143,15 +172,71 @@ $grad_2 :  #F36D90;
   }
 }
 
+.intro_button{
+  padding: 1em;
+  color: white;
+  display: block;
+
+  p{
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 1em;
+    background-color: $grad_1;
+    transition: background-color 0.2s linear;
+  }
+  p:hover{
+    color: white;
+    background-color: $grad_2;
+  }
+}
+
+.intro_button:hover{
+color: white;
+}
+
 .red{
   color:red;
 }
 
 .INTRO{
-  h1,a, span {
-    font-size: 50px;
+  h2 {
+    font-size:3vw;
     font-weight: 900;
     line-height: normal;
+  }
+  h1{
+    padding: 0.9em 0 0.9em 0;
+    font-size:3.5vw;
+    letter-spacing: 0.05em;
+    font-weight: 900;
+    color:$grad_1;
+    text-transform: uppercase;
+  }
+  h3{
+    font-size: 2vw;
+    padding-bottom: 1em;
+  }
+}
+
+.grad_1{
+  color: $grad_1;
+}
+
+.grad_2{
+  color: $grad_2;
+}
+
+@media (max-width: 1100px){
+  .INTRO{
+    h2{ font-size:1.5em;  line-height: normal;}
+    h1{ font-size:2em; line-height: normal;}
+    h3{ font-size:1em;  line-height: normal;}
+  }
+  .intro_button{
+    padding: 0.5em;
+    p{
+      padding: 0.5em;
+    }
   }
 }
 
@@ -213,16 +298,91 @@ $grad_2 :  #F36D90;
 
 .mar-bottom{margin-top:1em;}
 
-input,textarea{width: 100%;
-background-color:  $background_color;
-border: 2px solid  $text_color ;  }
+
 // NAVIGATION
 // NAVIGATION
 
+.contact{
+  min-height: 68vh;
+  width: 100%;
+  label{
+    padding: 1em;
+  }
+  p{
+    width: 100%;
+    padding: 0.3em;
+  }
+  h3{
+    padding: 0.3em;
+    font-weight: 500;
+  }
+  a{
+    padding: 0;
+    font-size: 0.8em;
+  }
+}
+
+.wpcf7-form{
+  width: 100%;
+  padding:0.5em;
+  p{
+    padding: 0.5em;
+  }
+}
+
+.wpcf7{
+
+  input[type="text"],input[type="email"],textarea{
+  width: 100%;
+  background-color:  rgba(255,255,255,0.2);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid  $grad_1 ;
+  }
+
+  textarea{
+    height: 8em;
+  }
+
+  label{
+    padding: 0 1em 0 0 ;
+    font-size: 0.8em;
+  }
+
+  input[type="text"]:hover,textarea:hover,input[type="text"]:focus ,textarea:focus,  input[type="email"]:hover ,
+   input[type="email"]:focus{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: none;
+    border-bottom: 2px solid  $grad_2 ;
+  }
+
+  input[type="text"]:focus ,textarea:focus,  ,input[type="email"]:focus{
+    box-shadow: 0px 0px 1px 1px lightgrey;
+  }
+
+  input[type="file"], input[type="submit"]{
+    width:70%;
+    background-color:  rgba(255,255,255,0.3);
+  }
+
+  input[type="file"]:hover, input[type="submit"]:hover{
+    background-color:  $grad_1;
+    color:white;
+  }
+
+}
+
+
+
 .button{
-  float: right;
   width: fit-content;
   padding: 0.8em;
+  clear: both;
+  float: none;
+  margin: 1em 1em 2em 1em;
   font-size: 1.5em;
   background-color: $grad_1;
   border-radius: 1em;
@@ -355,7 +515,7 @@ a {color: $text_color;
 
 }
 a:hover{
-  color: $grad_1;
+  color: white;
   text-decoration: none !important;
   cursor: pointer;
   }
@@ -415,6 +575,7 @@ margin-bottom: 2em;
 
 .control-posts{
   width:100%; background: $background_color_2;
+
 }
 
 // TEXT !!
@@ -542,6 +703,8 @@ transform: translate(-50%, -50%);
   .padding_medium{padding: 1em; }
   .padding_large{padding: 1.5em; }
 
+  .post_title{padding: 2em;}
+
   p{
   font-size: 18px;
   line-height: 21px;
@@ -567,7 +730,6 @@ transform: translate(-50%, -50%);
     p{
       font-size: 0.8em;
     }
-    margin-bottom: 1em;
   }
 
   .mob_menu{

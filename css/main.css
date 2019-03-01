@@ -1,3 +1,31 @@
+.SEPARATOR_TITLE {
+  margin-top: -0.3em;
+  margin-bottom: 0.3em;
+  transform: scale(1.2);
+  width: 100%;
+  text-align: center;
+  padding: 1em;
+  font-weight: 700;
+  font-size: 2em;
+  color: white;
+  background-color: #8079fa;
+  text-transform: uppercase;
+  background-size: contain;
+  background: #1e5799;
+  background: -moz-linear-gradient(top, #8079fa 0%, #f36d90 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8079fa), color-stop(100%, #f36d90));
+  background: -webkit-linear-gradient(top, #8079fa 0%, #f36d90 100%);
+  background: -o-linear-gradient(top, #8079fa 0%, #f36d90 100%);
+  background: -ms-linear-gradient(top, #8079fa 0%, #f36d90 100%);
+  background: linear-gradient(to bottom, #8079fa 0%, #f36d90 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad_1, endColorstr=$grad_2,GradientType=0);
+  background-attachment: fixed;
+}
+@media (max-width: 1000px) {
+  .SEPARATOR_TITLE {
+    font-size: 1.5em;
+  }
+}
 #wpadminbar {
   display: none;
 }
@@ -98,13 +126,70 @@
   font-size: 40px;
   cursor: pointer;
 }
+.intro_button {
+  padding: 1em;
+  color: white;
+  display: block;
+}
+.intro_button p {
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 1em;
+  background-color: #8079fa;
+  transition: background-color 0.2s linear;
+}
+.intro_button p:hover {
+  color: white;
+  background-color: #f36d90;
+}
+.intro_button:hover {
+  color: white;
+}
 .red {
   color: red;
 }
-.INTRO h1, .INTRO a, .INTRO span {
-  font-size: 50px;
+.INTRO h2 {
+  font-size: 3vw;
   font-weight: 900;
   line-height: normal;
+}
+.INTRO h1 {
+  padding: 0.9em 0 0.9em 0;
+  font-size: 3.5vw;
+  letter-spacing: 0.05em;
+  font-weight: 900;
+  color: #8079fa;
+  text-transform: uppercase;
+}
+.INTRO h3 {
+  font-size: 2vw;
+  padding-bottom: 1em;
+}
+.grad_1 {
+  color: #8079fa;
+}
+.grad_2 {
+  color: #f36d90;
+}
+@media (max-width: 1100px) {
+  .INTRO h2 {
+    font-size: 1.5em;
+    line-height: normal;
+  }
+  .INTRO h1 {
+    font-size: 2em;
+    line-height: normal;
+  }
+  .INTRO h3 {
+    font-size: 1em;
+    line-height: normal;
+  }
+  .intro_button {
+    padding: 0.5em;
+  }
+  .intro_button p {
+    padding: 0.5em;
+  }
 }
 .post_change_link {
   transition: all 0.5s;
@@ -174,15 +259,71 @@
 .mar-bottom {
   margin-top: 1em;
 }
-input, textarea {
+.contact {
+  min-height: 68vh;
   width: 100%;
-  background-color: #f5f5f5;
-  border: 2px solid #0a0a0a;
+}
+.contact label {
+  padding: 1em;
+}
+.contact p {
+  width: 100%;
+  padding: 0.3em;
+}
+.contact h3 {
+  padding: 0.3em;
+  font-weight: 500;
+}
+.contact a {
+  padding: 0;
+  font-size: 0.8em;
+}
+.wpcf7-form {
+  width: 100%;
+  padding: 0.5em;
+}
+.wpcf7-form p {
+  padding: 0.5em;
+}
+.wpcf7 input[type="text"], .wpcf7 input[type="email"], .wpcf7 textarea {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid #8079fa;
+}
+.wpcf7 textarea {
+  height: 8em;
+}
+.wpcf7 label {
+  padding: 0 1em 0 0;
+  font-size: 0.8em;
+}
+.wpcf7 input[type="text"]:hover, .wpcf7 textarea:hover, .wpcf7 input[type="text"]:focus, .wpcf7 textarea:focus, .wpcf7 input[type="email"]:hover, .wpcf7 input[type="email"]:focus {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  outline: none;
+  border-bottom: 2px solid #f36d90;
+}
+.wpcf7 input[type="text"]:focus, .wpcf7 textarea:focus, .wpcf7 input[type="email"]:focus {
+  box-shadow: 0px 0px 1px 1px lightgrey;
+}
+.wpcf7 input[type="file"], .wpcf7 input[type="submit"] {
+  width: 70%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.wpcf7 input[type="file"]:hover, .wpcf7 input[type="submit"]:hover {
+  background-color: #8079fa;
+  color: white;
 }
 .button {
-  float: right;
   width: fit-content;
   padding: 0.8em;
+  clear: both;
+  float: none;
+  margin: 1em 1em 2em 1em;
   font-size: 1.5em;
   background-color: #8079fa;
   border-radius: 1em;
@@ -295,7 +436,7 @@ a {
   transition: all 0.2s;
 }
 a:hover {
-  color: #8079fa;
+  color: white;
   text-decoration: none !important;
   cursor: pointer;
 }
@@ -519,6 +660,9 @@ div {
   .padding_large {
     padding: 1.5em;
   }
+  .post_title {
+    padding: 2em;
+  }
   p {
     font-size: 18px;
     line-height: 21px;
@@ -555,7 +699,6 @@ div {
   .wrapper-control {
     padding: 0.2em;
     min-height: 4em;
-    margin-bottom: 1em;
   }
   .wrapper-control p {
     font-size: 0.8em;
