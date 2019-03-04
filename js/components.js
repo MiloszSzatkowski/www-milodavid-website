@@ -32,6 +32,7 @@ jQuery(function($) {
       })
     });
 
+
     $('.contact textarea').on('click', function () {
       var text_cont = $('.contact textarea').val();
       console.log(text_cont);

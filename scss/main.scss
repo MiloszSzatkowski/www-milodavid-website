@@ -22,31 +22,46 @@ $grad_1 :  #8079FA ;
 $grad_2 :  #F36D90;
 
 .SEPARATOR_TITLE{
-  margin-top: -0.3em;
-  margin-bottom: 0.3em;
-  transform: scale(1.2);
   width: 100%;
-  text-align:center; padding:1em; font-weight:700; font-size:2em;
-  color: white;
-  background-color: $grad_1;
-  text-transform: uppercase;
+  div{
+    margin-top: -0.3em;
+    margin-bottom: 0.3em;
+    transform: scale(1.2);
+    width: 100%;
+    text-align:center; padding:1em; font-weight:700; font-size:2em;
+    color: white;
+    background-color: $grad_1;
+    text-transform: uppercase;
 
-  background-size: contain;
-  background: #1e5799;
-    background: -moz-linear-gradient(top,  $grad_1 0%, $grad_2 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$grad_1), color-stop(100%,$grad_2));
-    background: -webkit-linear-gradient(top,  $grad_1 0%,$grad_2 100%);
-    background: -o-linear-gradient(top,  $grad_1 0%,$grad_2 100%);
-    background: -ms-linear-gradient(top,  $grad_1 0%,$grad_2 100%);
-    background: linear-gradient(to bottom,  $grad_1 0%,$grad_2 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$grad_1, endColorstr=$grad_2,GradientType=0 );
-    background-attachment: fixed;
+    background-size: contain;
+    background: #1e5799;
+      background: -moz-linear-gradient(top,  $grad_1 0%, $grad_2 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$grad_1), color-stop(100%,$grad_2));
+      background: -webkit-linear-gradient(top,  $grad_1 0%,$grad_2 100%);
+      background: -o-linear-gradient(top,  $grad_1 0%,$grad_2 100%);
+      background: -ms-linear-gradient(top,  $grad_1 0%,$grad_2 100%);
+      background: linear-gradient(to bottom,  $grad_1 0%,$grad_2 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$grad_1, endColorstr=$grad_2,GradientType=0 );
+      background-attachment: fixed;
 
+  }
 }
 
 @media (max-width: 1000px){
-  .SEPARATOR_TITLE{
-    font-size:1.5em;
+  .SEPARATOR_TITLE {
+    div{
+      font-size:1.5em;
+    }
+  }
+}
+
+@media (max-width: 770px){
+  .SEPARATOR_TITLE {
+    background-color: $background_color;
+    padding-top: 3em;
+    div{
+      font-size:1.5em;
+    }
   }
 }
 
@@ -431,7 +446,20 @@ color: white;
   }
 }
 
+.small_nav{
+  background-color: $text_2nd_color;
 
+   a:not(.small_logo){
+     text-transform: uppercase;
+     color: white;
+     border-bottom: 2px solid transparent;
+   }
+   a:not(.small_logo):hover{
+     border-bottom: 2px solid white;
+     background-color: black;
+   }
+
+}
 
 @media only screen and (max-width : 1500px){
 .menu_div{
@@ -484,7 +512,8 @@ body, .main-container {
 
 .bottom {   flex-grow: 1;
     overflow-y: auto;
-  overflow-x: hidden;}
+  overflow-x: hidden;
+}
 
 
 
@@ -554,6 +583,11 @@ max-height: 100%;
 overflow-y: show;
 overflow-x: hidden;
 text-align: left;
+}
+
+.hiding{
+  transition: all 1s;
+  top:-5em;
 }
 
 hr{

@@ -115,36 +115,6 @@ $ind++; endwhile;
   $gradient_baner = 'rgba(255,0,10,0.8)'
  ?>
 
-<style media="screen">
-
-.back-colored{background-color: <?=$gradient_baner?> }
-
-  .back-colored-art{
-    background: linear-gradient(90deg, <?=$box_color?> ,  rgba(0,0,0,0.95), rgba(0,0,0,0.95), <?=$box_color?>  ),
-    url('http://milodavid.local/wp-content/uploads/2019/02/panel-art.jpg') repeat local center ;
-    background-size: cover;
-    text-align: center;
-  }
-  .back-colored-art h2{font-size: 2em;}
-
-  .back-colored-design{
-    background: linear-gradient(90deg, <?=$box_color?>  , rgba(0,0,0,0.85), rgba(0,0,0,0.85), <?=$box_color?>  ),
-    url('http://milodavid.local/wp-content/uploads/2019/02/panel-design.jpg') repeat local center;
-    background-size: cover;
-    text-align: center;
-  }
-  .back-colored-design h2{font-size: 2em;}
-
-  .back-colored-programm{
-    background: linear-gradient(90deg, <?=$box_color?> , rgba(0,0,0,0.95), rgba(0,0,0,0.95), <?=$box_color?>  ),
-    url('http://milodavid.local/wp-content/uploads/2019/02/panel-programming.jpg') repeat local center;
-    background-size: cover;
-    text-align: center;
-  }
-  .back-colored-programm h2{font-size: 2em;}
-
-  </style>
-
 <div class="main-container" >
 
   <div id="left " class="d-none d-md-block no-mar-no-pad menu_div column " style=";">
@@ -152,7 +122,7 @@ $ind++; endwhile;
     <nav>
         <div id="" class="top-left " style="" >
 
-            <a href="<?=get_home_url();?>"
+            <a href="#super_top"
               style="    "          >
               <div class="" style="height:50px; width:100%;
               background-repeat: no-repeat;
@@ -164,9 +134,9 @@ $ind++; endwhile;
 
           <div id="mob_nav" class="mob_menu   " style="">
             <div class="">
-              <ul>
+              <ul >
+                <li> <a href="#what_is_branding">About</a> </li>
                 <li> <a href="#projects">My works</a> </li>
-                <li> <a href="#">Q&A</a> </li>
                 <li> <a href="#contact">Contact</a> </li>
               </ul>
               <div class="contact_inf d-none d-lg-block" style="">
@@ -180,7 +150,33 @@ $ind++; endwhile;
     </header>
   </div>
 
-  <div id="right" class="no-mar-no-pad bottom">
+  <div id="small_nav" class=" d-block d-md-none no-mar-no-pad   " style="">
+    <nav class=" small_nav" style="position:fixed; width:100%; z-index: 155;">
+      <div id="" class="" style=" width:100%;display:flex;align-items: center;
+      justify-content: space-evenly;" >
+
+      <a class="small_logo" href="#super_top"
+        style="    "          >
+        <div class="" style="height:1.4em; width:2em;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url(http://milodavid.local/wp-content/uploads/2019/03/logo-png-white.png);
+        background-size: contain; ">
+      </div>
+    </a>
+
+    <a class="padding_small" href="#what_is_branding">About</a>
+    <a class="padding_small" href="#projects">My works</a>
+    <a class="padding_small" href="#contact">Contact</a>
+
+  </div>
+</nav>
+</div>
+
+<div id="right" class="no-mar-no-pad bottom">
+
+    <div id="super_top" class="">    </div>
+
     <div class="container-fluid main-background column " style="">
       <div class="row ">
 
@@ -208,7 +204,7 @@ $ind++; endwhile;
                   <p></p>
 
                   <h3>
-                    I'm designing branding solutions and develop modern websites.
+                    I'm designing brand identities and develop modern websites.
                   </h3>
 
                   <div class="row">
@@ -241,7 +237,7 @@ $ind++; endwhile;
           </div>
         </div>
 
-        <div id="what_is_branding" class="SEPARATOR_TITLE"> BRANDING</div>
+        <div id="what_is_branding" class="SEPARATOR_TITLE"> <div>BRANDING</div> </div>
         <div class="col-md-12 background_color" >
           <div id="" class="content_styling" style="width:100%;">
 
@@ -249,7 +245,7 @@ $ind++; endwhile;
             <?php
 
             wp_reset_query();
-
+            wp_reset_postdata();
 
 
             $child_pages = new WP_Query( array(
@@ -266,12 +262,48 @@ $ind++; endwhile;
                 }
             endwhile; endif;
 
+            wp_reset_query();
             wp_reset_postdata();
+
 
             ?>
 
           </div>
         </div>
+
+        <div id="QandA" class="SEPARATOR_TITLE"><div> Q&A</div> </div>
+        <div class="col-md-12">
+          <div id="" class="content_styling" style="width:100%;">
+
+            <?php
+
+            wp_reset_query();
+            wp_reset_postdata();
+
+
+            $child_pages = new WP_Query( array(
+                'post_type'      => 'page' // set the post type to page
+            ) );
+
+            if ( $child_pages->have_posts() ) : while ( $child_pages->have_posts() ) : $child_pages->the_post();
+                if ( !empty( get_the_title() ) ){
+                  $title_ = apply_filters( 'the_title', get_the_title() );
+                  // echo $title_;
+                  if($title_ !=   'Case Study' ){
+                    the_content();
+                  }
+                }
+            endwhile; endif;
+
+            wp_reset_query();
+            wp_reset_postdata();
+
+
+            ?>
+
+            </div>
+        </div>
+
 
         <div class="col-xl-12   content-feed background_color_2">
             <div id="projects" class="projects   " style="width: 100%; margin: 0 auto;">
@@ -279,12 +311,12 @@ $ind++; endwhile;
 
                 <div class="   no-pad-left-right margin-bottom " style="">
                   <div class="col-lg-12 row" style="margin-top:1em;">
-                    <h2 class=" d-none d-lg-block my_projects SEPARATOR_TITLE" style="">
-                      My works
-                    </h2>
-                    <h2 class=" d-block d-lg-none my_projects SEPARATOR_TITLE" style="">
-                      My works
-                    </h2>
+                    <div class=" d-none d-lg-block my_projects SEPARATOR_TITLE" style="">
+                      <div>My works  </div>
+                    </div>
+                    <div class=" d-block d-lg-none my_projects SEPARATOR_TITLE" style="">
+                    <div>  My works  </div>
+                  </div>
 
                   </div>
                   <div class="">
@@ -431,14 +463,14 @@ $ind++; endwhile;
 
 
               <div id="contact" class="SEPARATOR_TITLE">
-                Contact
+              <div>  Contact </div>
               </div>
 
               <div class="col-md-12 padding_large">
                 <div class="contact row" style="">
 
                   <h4 class="col-md-12" style="width:100%; text-align: center; display:block;font-weight:500;">
-                    <div class="" style="display:flex; justify-content:center;">
+                    <div class="padding_small" style="display:flex; justify-content:center;">
 
                     Please fill out the quick form or email me and I will be in touch with lightening speed.
 
