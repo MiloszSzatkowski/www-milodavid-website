@@ -1,6 +1,8 @@
 <?php
 
-define('WP_SCSS_ALWAYS_RECOMPILE', true);
+// error_reporting(E_ALL);
+
+// define('WP_SCSS_ALWAYS_RECOMPILE', true);
 
 $dir_uri = '/wp-content/themes/minimalistic-black-theme/';
 
@@ -14,27 +16,20 @@ wp_deregister_script('jquery');
 wp_register_script('jquery', "https://code.jquery.com/jquery-3.3.1.min.js", false, null);
 wp_enqueue_script('jquery');
 
-// wp_enqueue_script( 'jq_mob_js', 'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js',  array(), '', 'all' );
-// wp_enqueue_style( 'jq_mob_css', 'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css',  array(), '', 'all' );
 
 wp_enqueue_style( 'boostrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' );
-wp_enqueue_style( 'reset',  get_template_directory_uri()  . '/reset_css/reset.css' ,  array(), '', 'all'  );
+// wp_enqueue_style( 'reset',  get_template_directory_uri()  . '/reset_css/reset.css' ,  array(), '', 'all'  );
 
-// wp_enqueue_style( 'simplebar_css', "https://unpkg.com/simplebar@latest/dist/simplebar.css" ,  array(), '', 'all'  );
-// wp_enqueue_script( 'simplebar_js', "https://unpkg.com/simplebar@latest/dist/simplebar.js" ,  array(), '', 'all'  );
+// wp_enqueue_style( 'main',  get_template_directory_uri()  . '/css/main.css' ,  array(), '', 'all'  );
 
-wp_enqueue_script( 'component_js', get_template_directory_uri() . '/js/components.js' ,  array(), '', 'all' );
-// wp_enqueue_script( 'aos', get_template_directory_uri() . '/js/aos.js' ,  array(), '', 'all' );
+
+// wp_enqueue_script( 'component_js', get_template_directory_uri() . '/js/components.js' ,  array(), '', 'all' );
 wp_register_script( 'bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js' ,  array(), '', 'all' );
 wp_enqueue_script('bootstrap_js');
 
-// wp_enqueue_script( 'lining_js', 'https://cdn.jsdelivr.net/lining.js/0.3.3/lining.min.js',  array(), '', '' );
-// wp_enqueue_script( 'lining_js_eff', 'https://cdn.jsdelivr.net/lining.js/0.3.3/lining.effect.min.js',  array(), '', '' );
-
-// wp_enqueue_script( 'block', get_template_directory_uri() . '/js/jquery.blockUI.js',  array(), '', '' );
-
 
 }
+
 add_action( 'wp_enqueue_scripts', 'theme_styles_and_scripts' );
 
 // POST TYPES
@@ -111,36 +106,18 @@ function editglobalcustomfields() {
     <p><strong>My mobile number:</strong><br />
      <input type="text" name="mytel" size="45" value="<?php echo get_option('mytel'); ?>" /></p>
 
-    <p><strong>My banner:</strong><br />
-    <input type="text" name="banner_photo" size="45" value="<?php echo get_option('banner_photo'); ?>" /></p>
-    <img src="<?php echo get_option('banner_photo'); ?>" alt="" style="width:50px;">
-
-    <p><strong>My mobile banner:</strong><br />
-    <input type="text" name="mb_banner_photo" size="45" value="<?php echo get_option('mb_banner_photo'); ?>" /></p>
-    <img src="<?php echo get_option('mb_banner_photo'); ?>" alt="" style="width:50px;">
 
 
-    <p><strong>General introduction:</strong><br />
-    <?php wp_editor( get_option('introduction'), 'introduction' , array('teeny'=>false, 'media_buttons' => false )); ?>
-    <p><strong>My offer:</strong><br />
-    <?php wp_editor( get_option('my_offer'), 'my_offer' , array('teeny'=>false, 'media_buttons' => false )); ?>
-
-
-   <p><strong>Design intro:</strong><br />
-   <?php wp_editor( get_option('des_intro'), 'des_intro' , array('teeny'=>false, 'media_buttons' => false )); ?>
-
-   <p><strong>Programming intro:</strong><br />
-   <?php wp_editor( get_option('prog_intro'), 'prog_intro' , array('teeny'=>false, 'media_buttons' => false )); ?>
-
-   <p><strong>Art intro:</strong><br />
-   <?php wp_editor( get_option('art_intro'), 'art_intro' , array('teeny'=>false, 'media_buttons' => false )); ?>
+   <p><strong>Logo src:</strong><br />
+     <input type="text" name="logo_src" size="45" value="<?php echo get_option('logo_src'); ?>" /></p>
+     <img src="<?php echo get_option('logo_src'); ?>" alt="">
 
    </div>
 
   <p><input type="submit" name="Submit" value="Update Options" /></p>
 
 	<input type="hidden" name="action" value="update" />
-	<input type="hidden" name="page_options" value="mytel, mb_banner_photo, banner_photo, my_offer, introduction, des_intro, prog_intro, art_intro" />
+	<input type="hidden" name="page_options" value="mytel, logo_src" />
 
 	</form>
 	</div>

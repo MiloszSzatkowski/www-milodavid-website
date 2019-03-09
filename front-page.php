@@ -80,7 +80,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
       if (count($images)>0) {
         echo ",";
         for ($j=0; $j < count($images); $j++) {
-          $full_image_url = $images[$j]['full_image_url'];
+          $full_image_url = $images[$j];
           echo json_encode($full_image_url);
           if ($j!= (count($images)-1)) {
             echo ",";
@@ -122,22 +122,27 @@ $ind++; endwhile;
     <nav>
         <div id="" class="top-left " style="" >
 
-            <a href="#super_top"
-              style="    "          >
-              <div class="" style="height:50px; width:100%;
+            <a href="<?=get_home_url();?>"    style="display: block;   "       class="padding_small"   >
+              <div class="" style="height:80px; width:100%;
               background-repeat: no-repeat;
               background-position: center center;
-              background-image: url(http://milodavid.local/wp-content/uploads/2019/02/LOGO-1.png);
+              background-image: url(<?php echo get_option('logo_src'); ?>);
                background-size: contain; margin-top:2em;">
               </div>
             </a>
 
+            <div class="padding_small">
+              <div class="" style="height: 0.1em; background-color:white;">            </div>
+            </div>
+
           <div id="mob_nav" class="mob_menu   " style="">
             <div class="">
               <ul >
-                <li> <a href="#what_is_branding">About</a> </li>
-                <li> <a href="#projects">My works</a> </li>
-                <li> <a href="#contact">Contact</a> </li>
+                <li>     <a class=" switch_page_to_about_me " href="#about_me_page">About</a>            </li>
+                <li>     <a class=" switch_page_to_my_works" href="#projects">My works</a> </li>
+                <li class="d-xl-none d-block">     <a class=" switch_page_to_what_is_branding" href="#what_is_branding">Branding  </a>           </li>
+                <li class="d-xl-block d-none">     <a class=" switch_page_to_what_is_branding" href="#what_is_branding">What is branding?  </a>           </li>
+                <li>     <a href="#contact">Contact</a> </li>
               </ul>
               <div class="contact_inf d-none d-lg-block" style="">
                 <p>  <?= get_option('mytel')?> </p>
@@ -155,18 +160,19 @@ $ind++; endwhile;
       <div id="" class="" style=" width:100%;display:flex;align-items: center;
       justify-content: space-evenly;" >
 
-      <a class="small_logo" href="#super_top"
+      <a class="small_logo " href="<?=get_home_url();?>"
         style="    "          >
         <div class="" style="height:1.4em; width:2em;
         background-repeat: no-repeat;
         background-position: center center;
-        background-image: url(http://milodavid.local/wp-content/uploads/2019/03/logo-png-white.png);
+        background-image: url(<?php echo get_option('logo_src'); ?>);
         background-size: contain; ">
       </div>
     </a>
 
-    <a class="padding_small" href="#what_is_branding">About</a>
-    <a class="padding_small" href="#projects">My works</a>
+    <a class="padding_small switch_page_to_about_me " href="#what_is_branding">About</a>
+    <a class="padding_small switch_page_to_my_works" href="#projects">My works</a>
+    <a class="padding_small switch_page_to_what_is_branding" href="#what_is_branding">Branding</a>
     <a class="padding_small" href="#contact">Contact</a>
 
   </div>
@@ -174,60 +180,41 @@ $ind++; endwhile;
 </div>
 
 <div id="right" class="no-mar-no-pad bottom">
+  <div class="se-pre-con"></div>
 
     <div id="super_top" class="">    </div>
 
     <div class="container-fluid main-background column " style="">
       <div class="row ">
 
-        <div id="introduction-container" class="col-md-12 background_color   full-device-height "
-        style="display:flex; justify-content: center; flex-direction: column; height:102vh;">
+        <div id="introduction-container" class="col-md-12 background_color    "
+        style="display:flex; justify-content: center; flex-direction: column;">
           <div class="text_2nd_color row"  style="padding-bottom:0;">
-            <div class="col-xl-12" style="padding:0;">
-              <div class="padding_small" style="display:flex;">
+            <div class="col-xl-12" style="padding:0;    margin-top: 10vh;">
+              <div class="padding_small" style="">
                 <div class="" style="">
                   <div class="INTRO padding_large" style=" line-height:1.8em;
-
+                  display:flex;justify-content:center;flex-wrap: wrap;
                   " data-lining data-effect="slideIn"
                   data-auto-resize
                   data-lining data-auto-resize>
 
-                  <h2 style="">
-                    My name is Milo David. I'm a professional
-                  </h2>
+                  <div class="text-center" style="max-width:800px;">
+                    <h2 style="">
+                      My name is Milo David. I'm a professional
+                    </h2>
 
-                  <p></p>
-                    <h1 style="">
-                    graphic designer and
-                    coder.
-                  </h1>
-                  <p></p>
+                    <p></p>
+                      <h1 style="">
+                      graphic designer and
+                      coder.
+                    </h1>
+                    <p></p>
 
-                  <h3>
-                    I'm designing brand identities and develop modern websites.
-                  </h3>
-
-                  <div class="row">
-                    <a id="" class="intro_button col-lg-5 col-md-12" name="button" href="#what_is_branding">
-                      <p>
-                        What is branding? <i class="fas fa-chevron-right"></i>
-                      </p>
-                    </a>
-                    <a id="" class="intro_button col-lg-7 col-md-12" name="button" href="#Example_of_branding">
-                      <p>
-                        Example of branding <i class="fas fa-chevron-right"></i>
-                      </p>
-                    </a>
-                    <a id="" class="intro_button col-lg-9 col-md-12" name="button" href="#projects">
-                      <p>
-                        My works <i class="fas fa-chevron-right"></i>
-                      </p>
-                    </a>
-                    <a id="" class="intro_button col-lg-3 col-md-12" name="button" href="#contact">
-                      <p>
-                        Contact <i class="fas fa-chevron-right"></i>
-                      </p>
-                    </a>
+                    <h3>
+                    I design brand identities and develop modern websites for small and medium-sized business.
+                    My job consists of constantly solving problems by making thinking visual.
+                    </h3>
                   </div>
 
                   </div>
@@ -237,8 +224,8 @@ $ind++; endwhile;
           </div>
         </div>
 
-        <div id="what_is_branding" class="SEPARATOR_TITLE"> <div>BRANDING</div> </div>
-        <div class="col-md-12 background_color" >
+        <div id="what_is_branding" class="col-md-12 background_color" >
+          <div id="what_is_branding_href" class="SEPARATOR_TITLE"> <div>BRANDING</div> </div>
           <div id="" class="content_styling" style="width:100%;">
 
 
@@ -271,8 +258,8 @@ $ind++; endwhile;
           </div>
         </div>
 
-        <div id="QandA" class="SEPARATOR_TITLE"><div> Q&A</div> </div>
-        <div class="col-md-12">
+        <div id="about_me_page" class="col-md-12 background_color">
+          <div id="" class="SEPARATOR_TITLE"><div> About me</div> </div>
           <div id="" class="content_styling" style="width:100%;">
 
             <?php
@@ -305,16 +292,13 @@ $ind++; endwhile;
         </div>
 
 
-        <div class="col-xl-12   content-feed background_color_2">
+        <div class="col-xl-12    my_works_page  content-feed background_color">
             <div id="projects" class="projects   " style="width: 100%; margin: 0 auto;">
               <div class=" ">
 
                 <div class="   no-pad-left-right margin-bottom " style="">
                   <div class="col-lg-12 row" style="margin-top:1em;">
-                    <div class=" d-none d-lg-block my_projects SEPARATOR_TITLE" style="">
-                      <div>My works  </div>
-                    </div>
-                    <div class=" d-block d-lg-none my_projects SEPARATOR_TITLE" style="">
+                    <div class=" my_projects SEPARATOR_TITLE" style="">
                     <div>  My works  </div>
                   </div>
 
@@ -338,14 +322,14 @@ $ind++; endwhile;
               <!-- DIV BELOW - END OF CONTENT DIV -->
             </div>
 
-            <div class="col-xl-12 col-lg-12"  id=" " style="position:relative;">
+            <div class="col-xl-12 col-lg-12 background_color     my_works_page"  id=" " style="position:relative;">
               <div id="post_t" class="">           </div>
-              <div id="contento" class="background_color_2  " style="margin-top:1em;">
+              <div id="contento" class="background_light  " style="margin-top:1em;">
 
-                <div class="row post_title_backg" style="border-top: 2px solid #8079FA">
+                <div class="row " style="border-top: 1px solid #ff5722; ">
 
 
-                  <div id="next_project" class="next_project col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 wrapper-control">
+                  <div id="next_project" class="next_project col-xl-4 col-lg-4 col-md-4 col-sm-2 col-1 wrapper-control">
                     <a class="carousel-control-prev control-posts" data-target="" role="button"
                       href="#post_t"
                       style="">
@@ -357,11 +341,12 @@ $ind++; endwhile;
                     </a>
                  </div>
 
-                 <h3  class="padding_small post_title col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 " style="text-align:center;font-weight:500;">
+                 <h3  class="padding_small post_title col-xl-4 col-lg-4 col-md-4 col-sm-8 col-10 " style="text-align:center;text-transform: uppercase;
+                 letter-spacing: 0.1em;">
                    POST TITLE
                  </h3>
 
-                 <div id="prev_project" class="prev_project col-xl-4 col-lg-4 col-md-4  col-sm-3 col-3 wrapper-control">
+                 <div id="prev_project" class="prev_project col-xl-4 col-lg-4 col-md-4  col-sm-2 col-1 wrapper-control">
                    <a class="carousel-control-next control-posts" data-target="" role="button"
                    href="#post_t"
                    style="">
@@ -375,9 +360,9 @@ $ind++; endwhile;
                 </div>
 
 
-                <div class="row">
-                  <div class="col-xl-4 background_light" style="padding-left:0;padding-right: 0;">
-                    <div class="background_light padding_medium">
+                <div class="row" style="border-bottom: 1px solid #ff5722;">
+                  <div class="col-xl-4 background_color" style="padding-left:0;padding-right: 0;">
+                    <div class="background_color padding_medium">
                       <div class="scroll_content padding_medium row" style="">
 
                         <div class="paste_content_wrap" >
@@ -388,7 +373,7 @@ $ind++; endwhile;
                           >
                             POST CONTENT
                           </p>
-
+                          <p class="asd" style="height:1em;"></p>
                           <a class="collapsed button" data-toggle="collapse" href=""
                           data-target="#paste_content" style="margin-top:1em;font-size:0.7em;"
                            onload=""></a>
@@ -401,14 +386,14 @@ $ind++; endwhile;
                   <div class="col-xl-8" style="padding-left:0;padding-right: 0;">
                     <div class="row   ">
                         <div class="col-md-12" style="">
-                          <div class="background_darker d-lg-none d-block" style="text-align:center;padding-top:1em;font-weight:900;">
+                          <div class="background_color d-lg-none d-block" style="text-align:center;padding-top:1em;text-transform:uppercase;">
                             Galleries
                           </div>
                           <div class="flex-blocked" style="display:flex; width:100%;">
-                            <div class="background_darker padding_small d-none d-lg-block" style="padding-left:2em;padding-top:2em; min-height:100%;border-right:2px solid lightgrey;">
+                            <div class="background_color padding_small d-none d-lg-block" style="padding-left:2em;padding-top:2em; min-height:100%;border-right:2px solid lightgrey;">
                               Galleries
                             </div>
-                            <div class="  padding_medium warp_in_gallery_titles" style="">
+                            <div class="  padding_medium warp_in_gallery_titles background_color" style="width:100%;">
                             </div>
                           </div>
                         </div>
@@ -416,7 +401,7 @@ $ind++; endwhile;
 
                     <section id="Galeria_nr_0" class="row galleries" style="display:flex">
                       <section class="col-md-12">
-                          <div class="bd-example galeria_duza_kontener">
+                          <div class="bd-example gallery_wrapper">
                             <div id="nav__0" class="carousel slide" data-ride="carousel" data-interval="5000">
 
                               <div class="">
@@ -428,13 +413,13 @@ $ind++; endwhile;
                               </div>
 
                               <a class="carousel-control-prev" data-target="#nav__0" role="button" data-slide="prev"
-                                style="">
+                                style="background-color:rgba(255, 255, 255, 0.38);">
                                 <span class="carousel-control-prev-icon" aria-none="true"></span>
                                 <span class="sr-only">Previous</span>
                               </a>
 
                               <a class="carousel-control-next" data-target="#nav__0" role="button" data-slide="next"
-                                style="">
+                                style="background-color:rgba(255, 255, 255, 0.38);">
                                 <span class="carousel-control-next-icon" aria-none="true"></span>
                                 <span class="sr-only">Next</span>
                               </a>
@@ -459,14 +444,11 @@ $ind++; endwhile;
               </div>
 
 
-              <div class="col-md-12" style="height:1em;">             </div>
 
-
-              <div id="contact" class="SEPARATOR_TITLE">
-              <div>  Contact </div>
-              </div>
-
-              <div class="col-md-12 padding_large">
+              <div class="col-md-12 padding_large background_color">
+                <div id="contact" class="SEPARATOR_TITLE">
+                  <div>  Contact </div>
+                </div>
                 <div class="contact row" style="">
 
                   <h4 class="col-md-12" style="width:100%; text-align: center; display:block;font-weight:500;">
@@ -489,7 +471,7 @@ $ind++; endwhile;
 
                 <div class="col-lg-6">
                 <div class="" style="display:flex; justify-content:center;">
-                  <div class="col-md-12 padding_large">
+                  <div class="col-md-12 padding_small">
                     <p>
                       Milo David Art & Design Limited
                     </p>

@@ -28,7 +28,7 @@ jQuery(function($) {
       $('.modal-init').on('click', function () {
         $('.modal-init').fadeOut(400, function() {
           $('.modal-init').remove();
-        })();
+        });
       })
     });
 
